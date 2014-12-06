@@ -6,15 +6,26 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+
 import java.awt.CardLayout;
+
 import javax.swing.SwingConstants;
+
 import java.awt.Component;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+import Controleur.Controleur;
+import java.awt.Color;
 
 public class JFramePartie extends JFrame {
 
@@ -42,39 +53,76 @@ public class JFramePartie extends JFrame {
 	 */
 	public JFramePartie() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 871, 498);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
-		gbl_contentPane.columnWidths = new int[]{0, 0, 0};
-		gbl_contentPane.rowHeights = new int[]{0, 0, 0};
-		gbl_contentPane.columnWeights = new double[]{1.0, 1.0, Double.MIN_VALUE};
-		gbl_contentPane.rowWeights = new double[]{1.0, 1.0, Double.MIN_VALUE};
+		gbl_contentPane.columnWidths = new int[]{0, 0, 0, 0};
+		gbl_contentPane.rowHeights = new int[]{0, 0, 0, 0, 0};
+		gbl_contentPane.columnWeights = new double[]{1.0, 1.0, 1.0, Double.MIN_VALUE};
+		gbl_contentPane.rowWeights = new double[]{1.0, 0.0, 1.0, 1.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
 		
+		JPanel panel_8 = new JPanel();
+		panel_8.setBackground(Color.LIGHT_GRAY);
+		GridBagConstraints gbc_panel_8 = new GridBagConstraints();
+		gbc_panel_8.gridwidth = 3;
+		panel_8.setSize(200, 200);
+		gbc_panel_8.insets = new Insets(0, 0, 5, 0);
+		gbc_panel_8.fill = GridBagConstraints.BOTH;
+		gbc_panel_8.gridx = 0;
+		gbc_panel_8.gridy = 0;
+		contentPane.add(panel_8, gbc_panel_8);
+		
+		JLabel label = new JLabel(new ImageIcon("images/Crossed Swords.png"));
+		panel_8.add(label);
+		
+		JLabel lblMadClicker = new JLabel("MAD CLICKER");
+		GridBagConstraints gbc_lblMadClicker = new GridBagConstraints();
+		gbc_lblMadClicker.insets = new Insets(0, 0, 5, 5);
+		gbc_lblMadClicker.gridx = 1;
+		gbc_lblMadClicker.gridy = 1;
+		contentPane.add(lblMadClicker, gbc_lblMadClicker);
+		
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.LIGHT_GRAY);
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.insets = new Insets(0, 0, 5, 5);
 		gbc_panel.gridx = 0;
-		gbc_panel.gridy = 0;
+		gbc_panel.gridy = 2;
 		contentPane.add(panel, gbc_panel);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		
-		JButton btnNewButton = new JButton("New button");
+		JButton btnNewButton = new JButton("Nouvelle Partie");
+		btnNewButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		panel.add(btnNewButton);
 		
 		JPanel panel_4 = new JPanel();
+		panel_4.setBackground(Color.LIGHT_GRAY);
 		panel.add(panel_4);
 		
-		JButton btnNewButton_1 = new JButton("New button");
+		JButton btnNewButton_1 = new JButton("Quitter");
+		btnNewButton_1.setAlignmentX(Component.CENTER_ALIGNMENT);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		panel.add(btnNewButton_1);
 		
+		
 		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(Color.LIGHT_GRAY);
 		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
 		gbc_panel_1.insets = new Insets(0, 0, 5, 0);
-		gbc_panel_1.gridx = 1;
-		gbc_panel_1.gridy = 0;
+		gbc_panel_1.gridx = 2;
+		gbc_panel_1.gridy = 2;
 		contentPane.add(panel_1, gbc_panel_1);
 		GridBagLayout gbl_panel_1 = new GridBagLayout();
 		gbl_panel_1.columnWidths = new int[]{0, 0, 0, 0};
@@ -136,45 +184,59 @@ public class JFramePartie extends JFrame {
 		GridBagConstraints gbc_panel_2 = new GridBagConstraints();
 		gbc_panel_2.insets = new Insets(0, 0, 0, 5);
 		gbc_panel_2.gridx = 0;
-		gbc_panel_2.gridy = 1;
+		gbc_panel_2.gridy = 3;
 		contentPane.add(panel_2, gbc_panel_2);
 		panel_2.setLayout(new BoxLayout(panel_2, BoxLayout.Y_AXIS));
 		
-		JButton btnNewButton_2 = new JButton("New button");
+		JButton btnNewButton_2 = new JButton("Pouvoir 1");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnNewButton_2.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel_2.add(btnNewButton_2);
 		
 		JPanel panel_5 = new JPanel();
+		panel_5.setBackground(Color.LIGHT_GRAY);
 		panel_2.add(panel_5);
 		
-		JButton btnNewButton_3 = new JButton("New button");
+		JButton btnNewButton_3 = new JButton("Pouvoir 2");
 		btnNewButton_3.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel_2.add(btnNewButton_3);
 		
 		JPanel panel_6 = new JPanel();
+		panel_6.setBackground(Color.LIGHT_GRAY);
 		panel_2.add(panel_6);
 		
-		JButton btnNewButton_4 = new JButton("New button");
+		JButton btnNewButton_4 = new JButton("Pouvoir 3");
 		btnNewButton_4.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel_2.add(btnNewButton_4);
 		
 		JPanel panel_7 = new JPanel();
+		panel_7.setBackground(Color.LIGHT_GRAY);
 		panel_2.add(panel_7);
 		
-		JButton btnNewButton_5 = new JButton("New button");
+		JButton btnNewButton_5 = new JButton("Pouvoir n");
 		btnNewButton_5.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel_2.add(btnNewButton_5);
 		
 		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(Color.LIGHT_GRAY);
 		panel_3.setLayout(null);
 		GridBagConstraints gbc_panel_3 = new GridBagConstraints();
 		gbc_panel_3.fill = GridBagConstraints.BOTH;
-		gbc_panel_3.gridx = 1;
-		gbc_panel_3.gridy = 1;
+		gbc_panel_3.gridx = 2;
+		gbc_panel_3.gridy = 3;
 		contentPane.add(panel_3, gbc_panel_3);
 		
-		JButton btnNewButton_6 = new JButton("New button");
-		btnNewButton_6.setBounds(0, 0, 400, 240);
+		JButton btnNewButton_6 = new JButton(new ImageIcon("images/Minotaure.png"));
+		btnNewButton_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Controleur.attaque();
+			}
+		});
+		btnNewButton_6.setBounds(0, 0, 240, 240);
 		panel_3.add(btnNewButton_6);
 	}
 }
