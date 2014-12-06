@@ -9,4 +9,5 @@ Révision des autres classes en général
 
 Notes:
 Supprimer la classe JFramePartieTest.java car inutile et utilisée comme classe de test
-Supprimer le package Controleur après avoir déplacé Controleur.java dans le package Interface car Controleur.java déjà présent dans le package Interface
+Supprimer le package Controleur après avoir déplacé Controleur.java dans le package Interface car
+Controleur.java déjà présent dans le package Interface
