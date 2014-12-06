@@ -9,6 +9,7 @@ Amélioration somaire de Parametres
 Révision des autres classes en général
 
 Notes:
+Les images sont en chemin absolu, à revoir pour pouvoir les afficher d'un dossier interne
 Classe JFramePartieTest.java supprimée
 Classe et package Controleur supprimés, le package correct est le package Interface
 contenant la classe Controleur
