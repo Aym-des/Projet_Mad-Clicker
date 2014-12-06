@@ -3,6 +3,10 @@
  */
 package Parametres;
 
+import java.util.Scanner;
+
+import Créature.Joueur;
+
 /**
  * La classe Parametres regroupe les paramètres par défaut de début de partie
  */
@@ -46,5 +50,17 @@ public class Parametres {
 	 */
 	public int getADD_GAIN() {
 		return ADD_GAIN;
+	}
+
+	/**
+	 * Méthode nouvellePartie permettant de lancer une nouvelle partie en réinitialisant les données par défaut 
+	 */
+	public static void nouvellePartie() {
+		Joueur joueur = new Joueur();
+		Scanner saisie = new Scanner(System.in);
+		//AFFICHAGE DANS LA CONSOLE ! Note: toruver un moyen de faire pop une nouvelle JFrame
+		System.out.println("BIENVENUE DANS MAD CLICKER\nEntrez votre nom: ");
+		//joueur.setNom() = saisie.nextLine();
+		
 	}
 }

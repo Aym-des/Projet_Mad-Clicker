@@ -45,19 +45,12 @@ public class Joueur {
 	//*****************************
 	
 	/**
-	 * Constructeur de l'objet Joueur
+	 * Constructeur sans argument de l'objet Joueur
 	 */
 	public Joueur(){
 		this.nom = "";
 		this.dpc = 1;
 		this.dps = 0;
 		this.niveau = 1;
-	}
-	
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 	}
 }

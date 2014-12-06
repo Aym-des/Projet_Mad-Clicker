@@ -16,21 +16,40 @@ public class Controleur {
 		/**
 		 * Si les points de vie de la créture sont positifs, décrémente ses points de vie selon les dégâts par clics du joueur
 		 */
-		if (monstre.pdv > 0){
-			monstre.pdv = monstre.pdv - Joueur.getDpc();
+/**
+		 * if (monstre.pdv > 0){
+			monstre.pdv = monstre.pdv - joueur.getDpc();
 			return 1;
 		}
+*/
+		
 		/**
 		 * Si les points de vie de la créatures sont égaux ou inférieurs à 0, retourne 0 pour confirmer la mort
 		 */
-		if (monstre.pdv <= 0){
+/**
+		 * if (monstre.pdv <= 0){
+		 *
 			niveauSuivant();
 			return 0;
 		}
+*/
 	}
 	
+	/**
+	 * 
+	 */
 	private void niveauSuivant() {
 		
+		
+	}
+	
+	/**
+	 * Méthode pouvoir1 effectuant les effets du pouvoir 1 lorsqu'il est sélectionné
+	 */
+	public static void pouvoir1() {
+/**
+		 * joueur.getDpc() += 20;
+*/
 		
 	}
 	
