@@ -22,7 +22,7 @@ import javax.swing.BoxLayout;
 
 import Controleur.Controleur;
 import Parametres.Parametres;
-import Créature.Joueur;
+import CrÃ©ature.Joueur;
 
 import java.awt.Component;
 import java.awt.event.ActionListener;
@@ -54,7 +54,7 @@ public class JFramePartieFinal extends JFrame {
 	 */
 	public JFramePartieFinal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1200, 720);
+		setBounds(100, 100, 1100, 720);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
