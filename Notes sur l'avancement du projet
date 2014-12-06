@@ -1,5 +1,17 @@
 Projet_Mad-Clicker
 ==================
+Commit du 6 décembre à 18:38 sur Branche-Travail:
+
+Interface graphique revue de 0 et semi-finale
+Mise en place d'un nouveau Controleur
+Amélioration somaire de Parametres
+Révision des autres classes en général
+
+Notes:
+Classe JFramePartieTest.java supprimée
+Classe et package Controleur supprimés, le package correct est le package Interface
+contenant la classe Controleur
+#################################################
 Commit du 6 décembre à 14:48 sur Branche-Travail:
 
 Interface graphique revue
