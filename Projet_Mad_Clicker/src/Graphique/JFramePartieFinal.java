@@ -22,7 +22,7 @@ import javax.swing.BoxLayout;
 
 import Controleur.Controleur;
 import Parametres.Parametres;
-import CrÃ©ature.Joueur;
+import Créature.Joueur;
 
 import java.awt.Component;
 import java.awt.event.ActionListener;
@@ -140,7 +140,7 @@ public class JFramePartieFinal extends JFrame {
 
 		JLabel label = new JLabel("");
 		label.setAlignmentX(Component.CENTER_ALIGNMENT);
-		label.setIcon(new ImageIcon("C:\\Users\\Jorge\\Desktop\\Images MadClicker\\Crossed Swords.png"));
+		label.setIcon(new ImageIcon("images/Crossed Swords.png"));
 		panelPartie.add(label);
 
 		JPanel panel = new JPanel();
@@ -253,7 +253,7 @@ public class JFramePartieFinal extends JFrame {
 
 		JButton btnNewButton_6 = new JButton("");
 		btnNewButton_6.setBackground(Color.LIGHT_GRAY);
-		btnNewButton_6.setIcon(new ImageIcon("C:\\Users\\Jorge\\Desktop\\Images MadClicker\\Minotaure_Final.png"));
+		btnNewButton_6.setIcon(new ImageIcon("images/Minotaure.png"));
 		panelInterface.add(btnNewButton_6);
 	}
 
