@@ -4,7 +4,6 @@
 package Buffs;
 
 /**
- * Test GITHUB
  * La classe BuffMonstreParNiv sert à identifier le buff de base lorsqu'un sbire ou un monstre est traité
  */
 public class BuffMonstreParNiv {
