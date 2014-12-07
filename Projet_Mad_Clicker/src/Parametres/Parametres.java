@@ -6,6 +6,7 @@ package Parametres;
 import java.util.Scanner;
 
 import Créature.Joueur;
+import Graphique.JFrameNewGame;
 
 /**
  * La classe Parametres regroupe les paramètres par défaut de début de partie
@@ -36,7 +37,7 @@ public class Parametres {
 	 * nbVictimes indique le nombre de monstres dont leur points de vie sont tombés à 0 au cours de la partie
 	 */
 	public static int nbVictimes = 0;
-	public static int statutPartie = 0;
+	public static int nbClics = 0;
 	
 	/**
 	 * @return ADD_PDV
@@ -57,10 +58,6 @@ public class Parametres {
 	 */
 	public static void nouvellePartie() {
 		Joueur joueur = new Joueur();
-		Scanner saisie = new Scanner(System.in);
-		//AFFICHAGE DANS LA CONSOLE ! Note: toruver un moyen de faire pop une nouvelle JFrame
-		System.out.println("BIENVENUE DANS MAD CLICKER\nEntrez votre nom: ");
-		//joueur.setNom() = saisie.nextLine();
 		
 	}
 }

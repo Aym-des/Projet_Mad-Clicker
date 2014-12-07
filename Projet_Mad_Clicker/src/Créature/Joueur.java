@@ -9,6 +9,7 @@ public class Joueur {
 	private static int dpc;
 	private static int dps;
 	private int niveau;
+	private int pieces;
 	
 	//***** GETTERS & SETTERS *****
 	public String getNom() {
@@ -19,7 +20,7 @@ public class Joueur {
 		this.nom = nom;
 	}
 
-	public static int getDpc() {
+	public int getDpc() {
 		return dpc;
 	}
 
@@ -42,6 +43,14 @@ public class Joueur {
 	public void setNiveau(int niveau) {
 		this.niveau = niveau;
 	}
+	
+	public int getPieces() {
+		return pieces;
+	}
+
+	public void setPieces(int pieces) {
+		this.pieces = pieces;
+	}
 	//*****************************
 	
 	/**
@@ -53,4 +62,5 @@ public class Joueur {
 		this.dps = 0;
 		this.niveau = 1;
 	}
+
 }

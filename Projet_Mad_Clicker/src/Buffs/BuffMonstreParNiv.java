@@ -1,5 +1,5 @@
 /**
- * @author Jorge 
+ * @author Jorge Barata 2TL2
  */
 package Buffs;
 
@@ -9,8 +9,8 @@ package Buffs;
  */
 public class BuffMonstreParNiv {
 	/**
-	 * ADD_PDV  est une constante entière permettant d'augmenter les points de vie de la cible
-	 * ADD_GAIN est une constante entière permettant d'augmenter le gain provenant de la cible
+	 * ADD_PDV  est une constante entière permettant d'augmenter les points de vie de la cible par niveau gagné
+	 * ADD_GAIN est une constante entière permettant d'augmenter le gain provenant de la cible par niveau gagné
 	 */
 	final int ADD_PDV = 50;
 	final int ADD_GAIN = 5;
@@ -29,14 +29,6 @@ public class BuffMonstreParNiv {
 	 */
 	public int getADD_GAIN() {
 		return ADD_GAIN;
-	}
-	
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		
-
 	}
 
 }
