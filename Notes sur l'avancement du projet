@@ -1,11 +1,12 @@
 Projet_Mad-Clicker
 ==================
 #################################################
-Commit futur sur Branche-Travail:
+Commit du 7 décembre à 19:20 sur Branche-Travail:
 
-Interface pour une nouvelle partie créé et quasi-finalisé
+Fenêtre JFrameNewGame pour une nouvelle partie semi-finale créée et modification du JFramePartieFinal
 Légères modifications de Parametres
 Ajout d'instructions dans Controleur
+! Modification de l'UML
 
 Notes: Gros problème pour lier les ressources de chaque classe entre elles
 Exemple: les classes ne reconnaissent pas un nouveau joueur
