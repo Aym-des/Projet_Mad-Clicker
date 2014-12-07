@@ -1,6 +1,15 @@
 Projet_Mad-Clicker
 ==================
 #################################################
+Commit futur sur Branche-Travail:
+
+Interface pour une nouvelle partie créé et quasi-finalisé
+Légères modifications de Parametres
+Ajout d'instructions dans Controleur
+
+Notes: Gros problème pour lier les ressources de chaque classe entre elles
+Exemple: les classes ne reconnaissent pas un nouveau joueur
+#################################################
 Commit du 6 décembre à 18:38 sur Branche-Travail:
 
 Interface graphique revue de 0 et semi-finale
