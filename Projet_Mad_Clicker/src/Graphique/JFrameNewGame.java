@@ -2,7 +2,9 @@ package Graphique;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -30,15 +32,13 @@ public class JFrameNewGame extends JFrame {
 	private JTextField textField;
 
 	/**
-	 * Launch the application.
+	 * Launch the application
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					JFrameNewGame frame = new JFrameNewGame();
-					frame.setTitle("MAD CLICKER");
-					frame.setSize(350, 150);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -48,11 +48,13 @@ public class JFrameNewGame extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
+	 * Create the frame
 	 */
 	public JFrameNewGame() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setIconImage(Toolkit.getDefaultToolkit().getImage("Images/Icones/Icone Crossed Swords.png"));
+		setTitle("Mad Clicker");
+		setBounds(100, 100, 350, 160);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -60,26 +62,26 @@ public class JFrameNewGame extends JFrame {
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[]{0, 0, 0};
 		gbl_contentPane.rowHeights = new int[]{0, 0, 0, 0};
-		gbl_contentPane.columnWeights = new double[]{1.0, 1.0, Double.MIN_VALUE};
+		gbl_contentPane.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
 		
-		JLabel lblNouvellePartie = new JLabel("BIENVENUE SUR MAC CLICKER");
+		JLabel lblNouvellePartie = new JLabel("BIENVENUE SUR MAD CLICKER");
 		lblNouvellePartie.setForeground(Color.DARK_GRAY);
-		lblNouvellePartie.setBackground(Color.GRAY);
+		lblNouvellePartie.setBackground(Color.LIGHT_GRAY);
 		lblNouvellePartie.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblNouvellePartie = new GridBagConstraints();
 		gbc_lblNouvellePartie.gridwidth = 2;
-		gbc_lblNouvellePartie.insets = new Insets(5, 0, 15, 5);
+		gbc_lblNouvellePartie.insets = new Insets(15, 0, 15, 5);
 		gbc_lblNouvellePartie.gridx = 0;
 		gbc_lblNouvellePartie.gridy = 0;
 		contentPane.add(lblNouvellePartie, gbc_lblNouvellePartie);
 		
 		JLabel lblEntrezVotreNom = new JLabel("Entrez votre nom :");
-		lblEntrezVotreNom.setForeground(Color.DARK_GRAY);
+		lblEntrezVotreNom.setForeground(new Color(105, 105, 105));
 		lblEntrezVotreNom.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblEntrezVotreNom = new GridBagConstraints();
-		gbc_lblEntrezVotreNom.anchor = GridBagConstraints.WEST;
+		gbc_lblEntrezVotreNom.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblEntrezVotreNom.insets = new Insets(0, 0, 15, 5);
 		gbc_lblEntrezVotreNom.gridx = 0;
 		gbc_lblEntrezVotreNom.gridy = 1;
@@ -97,20 +99,32 @@ public class JFrameNewGame extends JFrame {
 		contentPane.add(textField, gbc_textField);
 		textField.setColumns(10);
 		
-		JButton btnQuitter = new JButton("Quitter");
+		ImageIcon icoQuit = new ImageIcon("Images/Icones/Icone Quitter.png");
+		JButton btnQuitter = new JButton("Quitter", icoQuit);
+		btnQuitter.setBackground(new Color(169, 169, 169));
+		btnQuitter.setFont(new Font("Verdana", Font.BOLD, 12));
 		btnQuitter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
 			}
 		});
 		GridBagConstraints gbc_btnQuitter = new GridBagConstraints();
-		gbc_btnQuitter.insets = new Insets(0, 0, 0, 5);
+		gbc_btnQuitter.insets = new Insets(0, 0, 20, 0);
 		gbc_btnQuitter.gridx = 0;
 		gbc_btnQuitter.gridy = 2;
 		contentPane.add(btnQuitter, gbc_btnQuitter);
 		
-		JButton btnConfirmer = new JButton("Confirmer");
+		ImageIcon icoConfirm = new ImageIcon("Images/Icones/Icone Confirmation.png");
+		JButton btnConfirmer = new JButton("Confirmer", icoConfirm);
+		btnConfirmer.setBackground(new Color(169, 169, 169));
+		btnConfirmer.setFont(new Font("Verdana", Font.BOLD, 12));
+		btnConfirmer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				//Entrer le texte entré dans le JTextField dans le nom du nouveau joueur
+			}
+		});
 		GridBagConstraints gbc_btnConfirmer = new GridBagConstraints();
+		gbc_btnConfirmer.insets = new Insets(0, 0, 20, 22);
 		gbc_btnConfirmer.gridx = 1;
 		gbc_btnConfirmer.gridy = 2;
 		contentPane.add(btnConfirmer, gbc_btnConfirmer);
