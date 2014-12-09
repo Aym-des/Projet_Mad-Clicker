@@ -1,7 +1,13 @@
 Projet_Mad-Clicker
 ==================
 #################################################
-Commit du 8 décembre à 21:25 surBranche-Travail:
+A faire:
+-> Le code, tout simplement
+-> Elargir le plateau de jeu pour qu'il contienne [9] cases
+-> Faire apparaitre un ou plusieurs monstres sur les cases aléatoirement [méthode random]
+
+#################################################
+Commit du 8 décembre à 21:25 sur Branche-Travail:
 
 Fenêtre JFrameNewGame finalisée et JFramePartie quasi-finale
 (à discuter avec toi)
