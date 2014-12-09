@@ -36,7 +36,8 @@ public class JFramePartieFinal extends JFrame {
 	/**
 	 * Launch the application
 	 */
-	public static void main(String[] args) {
+	
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -49,11 +50,11 @@ public class JFramePartieFinal extends JFrame {
 			}
 		});
 	}
-	
+	*/
 	/**
 	 * Create the frame
 	 */
-	public JFramePartieFinal() {
+	public JFramePartieFinal(String name, String degatparclic, String degatparsec, String level, String argent) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage("Images/Icones/Icone Crossed Swords.png"));
 		setBounds(100, 100, 1100, 750);
@@ -132,7 +133,7 @@ public class JFramePartieFinal extends JFrame {
 		gbl_panel_Infos.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel_Infos.setLayout(gbl_panel_Infos);
 
-		JLabel lblNomDuJoueur = new JLabel("Nom du joueur");
+		JLabel lblNomDuJoueur = new JLabel(name);
 		lblNomDuJoueur.setForeground(new Color(105, 105, 105));
 		lblNomDuJoueur.setFont(new Font("Verdana", Font.BOLD, 22));
 		GridBagConstraints gbc_lblNomDuJoueur = new GridBagConstraints();
@@ -152,7 +153,7 @@ public class JFramePartieFinal extends JFrame {
 		gbc_lblNewLabel.gridy = 1;
 		panel_Infos.add(lblNewLabel, gbc_lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel("this.niveau");
+		JLabel lblNewLabel_1 = new JLabel(level);
 		lblNewLabel_1.setForeground(new Color(105, 105, 105));
 		lblNewLabel_1.setFont(new Font("Verdana", Font.BOLD, 18));
 		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
@@ -172,7 +173,7 @@ public class JFramePartieFinal extends JFrame {
 		gbc_lblDgtsParClic.gridy = 2;
 		panel_Infos.add(lblDgtsParClic, gbc_lblDgtsParClic);
 
-		JLabel lblThisdpc = new JLabel("this.dpc");
+		JLabel lblThisdpc = new JLabel(degatparclic);
 		lblThisdpc.setForeground(new Color(105, 105, 105));
 		lblThisdpc.setFont(new Font("Verdana", Font.BOLD, 18));
 		GridBagConstraints gbc_lblThisdpc = new GridBagConstraints();
@@ -192,7 +193,7 @@ public class JFramePartieFinal extends JFrame {
 				gbc_lblDgtsParSec.gridy = 3;
 				panel_Infos.add(lblDgtsParSec, gbc_lblDgtsParSec);
 		
-				JLabel lblThisdps = new JLabel("this.dps");
+				JLabel lblThisdps = new JLabel(degatparsec);
 				lblThisdps.setForeground(new Color(105, 105, 105));
 				lblThisdps.setFont(new Font("Verdana", Font.BOLD, 18));
 				GridBagConstraints gbc_lblThisdps = new GridBagConstraints();
@@ -212,7 +213,7 @@ public class JFramePartieFinal extends JFrame {
 				gbc_lblPices.gridy = 4;
 				panel_Infos.add(lblPices, gbc_lblPices);
 				
-				JLabel lblThispieces = new JLabel("this.pieces");
+				JLabel lblThispieces = new JLabel(argent);
 				lblThispieces.setForeground(new Color(105, 105, 105));
 				lblThispieces.setFont(new Font("Verdana", Font.BOLD, 18));
 				GridBagConstraints gbc_lblThispieces = new GridBagConstraints();
