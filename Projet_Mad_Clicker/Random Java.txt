@@ -1,0 +1,17 @@
+Avec cette opération, on obtiendra un nombre compris entre 0 et la valeur de l'ampleur.
+Si on y ajoute le nombre minimum, on obtient un nombre aléatoire compris entre la limite
+inférieure et la limite supérieure.
+
+Min + (Math.random() * (Max - Min))
+
+La limite supérieure n'est cependant pas comprise dans l'intervalle. Pour l'inclure,
+la solution la plus simple consiste à ajouter 1, puis à enlever la partie décimale en convertissant
+le nombre en entier. La formule qui en résulte est la suivante :
+
+int nombreAleatoire = Min + (int)(Math.random() * ((Max - Min) + 1));
+
+La méthode nextInt() de la classe Random permet de générer un entier aléatoire compris entre 0
+inclus et l'entier passé en paramètre exclus. En ajoutant 1 et en enlevant le minimum dans l'entier
+en paramètre, puis en ajoutant le nombre minimum au résultat, on arrive à obtenir un nombre aléatoire compris entre les deux valeurs:
+Random rand = new Random();
+int nombreAleatoire = rand.nextInt(max - min + 1) + min;
