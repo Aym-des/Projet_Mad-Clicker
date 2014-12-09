@@ -54,7 +54,7 @@ public class Controleur {
 	}
 	
 	/**
-	 * @param args
+	 * @param args Les arguments à passer éventuellement
 	 */
 	public static void main(String[] args) {
 		/**

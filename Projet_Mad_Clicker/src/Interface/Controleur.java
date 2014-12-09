@@ -3,8 +3,8 @@
  */
 package Interface;
 
-import CrÃ©ature.Joueur;
-import CrÃ©ature.Monstre;
+import Créature.Joueur;
+import Créature.Monstre;
 import Parametres.Parametres;
 
 /**

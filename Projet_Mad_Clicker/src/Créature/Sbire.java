@@ -1,7 +1,7 @@
 /**
  * @author Jorge
  */
-package Créature;
+package Cr�ature;
 
 /**
  * La classe Sbire permet de caractériser un objet Sbire héritant de l'objet Monstre avec un nom, des points de vie, un niveau et un statut 0.
