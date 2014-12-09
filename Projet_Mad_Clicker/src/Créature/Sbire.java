@@ -1,17 +1,19 @@
 /**
  * @author Jorge
  */
-package Créature;
+package CrÃ©ature;
 
 /**
- * La classe Sbire permet de caractériser un objet Sbire héritant de l'objet Monstre avec un nom, des points de vie, un niveau et un statut 0.
+ * La classe Sbire permet de caractÃ©riser un objet Sbire hÃ©ritant de l'objet Monstre avec un nom, des points de vie, un niveau et un statut 0.
  */
 public class Sbire extends Monstre {
+
 	/**
-	 * NB_SBIRES est une valeur entière permettant de chiffrer le nombre de sbires disponibles
+	 * NB_SBIRES est une constante entiÃ¨re contenant le nombre total de sbires disponibles pour la partie
 	 */
-	private static int nbSbires = 0;
-	private int statut = 0;
+	final int NB_SBIRES = 10;
+	final int STATUT = 0;
+	Sbire tbSbire[] = new Sbire[NB_SBIRES];
 	
 	public Sbire(){
 		super();
@@ -19,15 +21,6 @@ public class Sbire extends Monstre {
 	
 	public Sbire(String nom, int pdv, int niveau){
 		super(nom, pdv, niveau);
-		statut = 0;
-	}
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		Sbire sbire1[] = new Sbire[nbSbires];
-		
 	}
 
 }
