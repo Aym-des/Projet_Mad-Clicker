@@ -111,7 +111,7 @@ public class JFramePartieFinal extends JFrame {
 		btnNewButton_5.setBackground(new Color(169, 169, 169));
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
+				System.exit(0);
 			}
 		});
 		panel.add(btnNewButton_5);

@@ -18,7 +18,7 @@ public class Boss extends Monstre {
 	}
 	
 	/**
-	 * @param args
+	 * @param args Les arguments a passer eventuellement
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

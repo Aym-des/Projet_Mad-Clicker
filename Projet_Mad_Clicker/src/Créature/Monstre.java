@@ -96,7 +96,7 @@ public class Monstre {
 	//*****************************
 	
 	/**
-	 * @param 
+	 * @param args Arguments à passer eventuellement
 	 */
 	public static void main(String[] args) {
 		Monstre monstre = new Monstre();
