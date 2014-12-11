@@ -7,25 +7,37 @@ package principal;
  * @author Aymeric
  *La classe Infos_joueur cotient les information relative au joueur sous forme de chaines de caractères.
  */
+
+////////////////////////////////////////////////
+// A voir si vraiment nécéssaire !!!
+//En effet, Vu que pour afficher il faut d'office passer la chaine manuelement
+//Pourquoi ne pas implementer directement ces setters  dans la classes JFramepartie final????
+//Ca réduirait peut etre le nombre d'instruction a chaque changement d'une des valeur 
+
+//Enlever les commentaires des attributs PRIVATE et PROTECTED --> Inutiles
+//////////////////////////////////////////////////
+
+
 public class Infos_joueur {
 	
 	/**
-	 * @param niveau Le niveau du joueur
+	 * Le nom du joueur
 	 */
-	protected String niveau;
-	
+	protected String nom;
 	/**
-	 * @param dpc Le nombre de degats par clic
+	 * Le niveau du joueur
 	 */
-	protected String dpc;
-	
+	protected String niveau;	
 	/**
-	 * @param dps Le nombre de degats par seconde
+	 * Le nombre de degats par clic
 	 */
-	protected String dps;
-	
+	protected String dpc;	
 	/**
-	 * @param pieces Le nombre de pieces dont dispose le joueur
+	 * Le nombre de degats par seconde
+	 */
+	protected String dps;	
+	/**
+	 * Le nombre de pieces dont dispose le joueur
 	 */
 	protected String pieces;
 	
@@ -35,63 +47,78 @@ public class Infos_joueur {
 	 */
 	
 	/**
-	 * @return the niveau
+	 * @return nom Le nom du joueur
+	 */
+	public String getNom(){
+		return nom;
+	}
+	
+	/**
+	 * @param name Le nom a donner au joueur
+	 */
+	public void setNom(String name){
+		this.nom = name;
+	}
+	
+	/**
+	 * @return niveau Le niveau du joueur
 	 */
 	public String getNiveau() {
 		return niveau;
 	}
 	/**
-	 * @param lvl the niveau to set
+	 * @param lvl Le niveau a donner au joueur
 	 */
 	public void setNiveau(int lvl) {
 		this.niveau = Integer.toString(lvl);
 	}
 	/**
-	 * @return the dpc
+	 * @return dpc Le nombre de degats par clics
 	 */
 	public String getDpc() {
 		return dpc;
 	}
 	/**
-	 * @param degparclic the dpc to set
+	 * @param degparclic Le nombre de degats par clics a donner au joueur
 	 */
 	public void setDpc(int degparclic) {
 		this.dpc = Integer.toString(degparclic);
 	}
 	/**
-	 * @return the dps
+	 * @return dps Le nombre de dps
 	 */
 	public String getDps() {
 		return dps;
 	}
 	/**
-	 * @param degparsec the dps to set
+	 * @param degparsec Le nombre de degats par seconde a donner au joueur
 	 */
 	public void setDps(int degparsec) {
 		this.dps = Integer.toString(degparsec);
 	}
 	/**
-	 * @return the pieces
+	 * @return pieces Le nombre de pieces dont dispose le joueur
 	 */
 	public String getPieces() {
 		return pieces;
 	}
 	/**
-	 * @param nbpieces the pieces to set
+	 * @param nbpieces Le nombre de pieces qu'aura le joueur
 	 */
 	public void setPieces(int nbpieces) {
 		this.pieces = Integer.toString(nbpieces);
 	}
 	/*
-	 * Fin getters and setters
+	 * FIN GETTERS AND SETTERS
 	 * **********************************
 	 */
 	
 	/*
-	 * CONSTRUCTEUR
+	 * CONSTRUCTEUR DE BASE
 	 */
 	
-	Infos_joueur(int lvl, int degparclic, int degparsec, int nbpieces){
+	Infos_joueur(String name, int lvl, int degparclic, int degparsec, int nbpieces){
+		this.nom = name;
 		this.niveau = Integer.toString(lvl);
 		this.dpc = Integer.toString(degparclic);
 		this.dps = Integer.toString(degparsec);

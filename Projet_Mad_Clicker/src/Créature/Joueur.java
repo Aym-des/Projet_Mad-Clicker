@@ -3,13 +3,15 @@
  */
 package Créature;
 
+import Parametres.Parametres;
+
 public class Joueur {
 
 	private String nom;
-	private static int dpc;
-	private static int dps;
-	private static int niveau;
-	private static int pieces;
+	private int dpc;
+	private int dps;
+	private int niveau;
+	private int pieces;
 	
 	//***** GETTERS & SETTERS *****
 	
@@ -94,14 +96,14 @@ public class Joueur {
 	//*****************************
 	
 	/**
-	 * Constructeur sans argument de l'objet Joueur
+	 * Constructeur de l'objet Joueur
 	 */
-	public Joueur(){
-		this.nom = "";
-		setDpc(1);
-		setDps(0);
-		setNiveau(1);
-		setPieces(0);
+	public Joueur(Parametres param){
+		nom = param.DEFAULT_NAME;
+		niveau = param.DEFAULT_NIVEAU;
+		dpc = param.DEFAULT_DPC;
+		dps = param.DEFAULT_DPS;
+		pieces = param.DEFAULT_PIECES;
 	}
 
 }

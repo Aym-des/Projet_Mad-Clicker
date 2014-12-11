@@ -8,6 +8,9 @@ import java.util.Scanner;
 import Créature.Joueur;
 import Graphique.JFrameNewGame;
 
+//A VOIR : 
+//PAssages de certain parametres genre nbvictimes dans infos_joueur
+
 /**
  * La classe Parametres regroupe les paramètres par défaut de début de partie
  */
@@ -18,6 +21,14 @@ public class Parametres {
 	 */
 	public final int NB_MONSTRES = 10;
 	/**
+	 * DEFAULT_NAME Le nom de joueur par défault
+	 */
+	public final String DEFAULT_NAME = "Nouveau Joueur"; //Peut etre inutile vu que hardcoder
+	/**
+	 * DEFAULT_NIVEAU Constante entière contenant la valeur du niveau du joueur par défaut
+	 */
+	public final int DEFAULT_NIVEAU = 1;
+	/**
 	 * DEFAULT_DPC est une constante entière contenant la valeur de départ/de base de dégâts par clic 
 	 */
 	public final int DEFAULT_DPC = 1;
@@ -25,6 +36,10 @@ public class Parametres {
 	 * DEFAULT_DPC est une constante entière contenant la valeur de départ/de base de dégâts par seconde 
 	 */
 	public final int DEFAULT_DPS = 0;
+	/**
+	 * DEFAULT_PIECES Constante entière contenant le nombre de pièce de départ
+	 */
+	public final int DEFAULT_PIECES = 0;
 	/**
 	 * ADD_PDV  est une constante entière permettant d'augmenter les points de vie de la cible
 	 */
@@ -37,6 +52,9 @@ public class Parametres {
 	 * nbVictimes indique le nombre de monstres dont leur points de vie sont tombés à 0 au cours de la partie
 	 */
 	public static int nbVictimes = 0;
+	/**
+	 * nbClics Indique le nombre de fois ou le joueur a clique rau cours de la partie
+	 */
 	public static int nbClics = 0;
 	
 	/**
@@ -53,11 +71,4 @@ public class Parametres {
 		return ADD_GAIN;
 	}
 
-	/**
-	 * Méthode nouvellePartie permettant de lancer une nouvelle partie en réinitialisant les données par défaut 
-	 */
-	public static void nouvellePartie() {
-		Joueur joueur = new Joueur();
-		
-	}
 }

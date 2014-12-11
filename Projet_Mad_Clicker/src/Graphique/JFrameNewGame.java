@@ -1,9 +1,15 @@
 package Graphique;
 
+/* A FAIRE :
+ * Mettre le commentaire Javadoc pour l'attribut contentpane
+ * Mettre les vérification de nom lors de la création d'une nouvelle partie.
+ */
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
 
+import javax.swing.*;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -20,20 +26,31 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 
 import Créature.Joueur;
+import principal.Executable;
 
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * 
+ * @author Jorge
+ * La classe JFrameNewGame affiche une fenetre permettant de rentrer son nom lorsqu'on appuie sur "Nouvelle Partie" dans la fenetre principale.
+ */
 public class JFrameNewGame extends JFrame {
 
 	private JPanel contentPane;
+	
+	/**
+	 * textField Le champ de texte ou La personne rentrera son nom
+	 */
 	private JTextField textField;
 
-	/**
+	/*
 	 * Launch the application
 	 */
+	/*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -45,7 +62,7 @@ public class JFrameNewGame extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame
@@ -88,9 +105,7 @@ public class JFrameNewGame extends JFrame {
 		contentPane.add(lblEntrezVotreNom, gbc_lblEntrezVotreNom);
 		
 		textField = new JTextField();
-/**	Envoyer le texte écrit dans le textField dans le nom du nouveau joueur
-		 * joueur.setNom(textField.getText());
-*/
+
 		GridBagConstraints gbc_textField = new GridBagConstraints();
 		gbc_textField.insets = new Insets(0, 0, 15, 0);
 		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
@@ -120,7 +135,15 @@ public class JFrameNewGame extends JFrame {
 		btnConfirmer.setFont(new Font("Verdana", Font.BOLD, 12));
 		btnConfirmer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//Entrer le texte entré dans le JTextField dans le nom du nouveau joueur
+				Executable.nouvelle_partie(textField.getText());
+				//Executable.frame1.setLblNomDuJoueur(textField.getText());
+				//Executable.infos.setNom(textField.getText());
+				/*Executable.frame1.setLblNiveauDuJoueur("5");
+				Executable.frame1.setLblDegatsParClics("50");
+				Executable.frame1.setLblDegatsParSecondes("4");
+				Executable.frame1.setLblNombreDePieces("1235");*/
+				dispose();
+				
 			}
 		});
 		GridBagConstraints gbc_btnConfirmer = new GridBagConstraints();
@@ -129,5 +152,4 @@ public class JFrameNewGame extends JFrame {
 		gbc_btnConfirmer.gridy = 2;
 		contentPane.add(btnConfirmer, gbc_btnConfirmer);
 	}
-
 }
