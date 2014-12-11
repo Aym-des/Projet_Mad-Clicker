@@ -6,6 +6,12 @@ A faire:
 -> Elargir le plateau de jeu pour qu'il contienne [9] cases
 -> Faire apparaitre un ou plusieurs monstres sur les cases aléatoirement [méthode random]
 
+Notes:
+Supprimer le package Controleur après avoir déplacé Controleur.java dans le package Interface car
+Controleur.java déjà présent dans le package Interface
+Supprimer la classe JFramePartieTest.java car inutile et utilisée comme classe de test
+Supprimer la classe JFramePartie.java car inutile et utilisée comme classe de test
+Supprimer la classe Joueur car déplacement dans le package Principal
 #################################################
 Commit du 8 décembre à 21:25 sur Branche-Travail:
 
