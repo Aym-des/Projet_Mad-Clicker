@@ -446,11 +446,12 @@ public class JFramePartieFinal extends JFrame{
 		panelOuest.add(btnPouv4, gbc_btnPouv4);
 
 		
-		JPanel panelInterface = new JPanel();
+		/*JPanel panelInterface = new JPanel();
 		panelInterface.setBackground(Color.LIGHT_GRAY);
 		panelInterface.setSize(400, 400);
 		contentPane.add(panelInterface, BorderLayout.CENTER);
 		panelInterface.setLayout(new BoxLayout(panelInterface, BoxLayout.Y_AXIS));
+		
 		
 		JLabel lblMonstrenom = new JLabel("monstre.nom");
 		lblMonstrenom.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -470,6 +471,8 @@ public class JFramePartieFinal extends JFrame{
 		lblMonstrepdv.setFont(new Font("Verdana", Font.BOLD, 20));
 		lblMonstrepdv.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panelInterface.add(lblMonstrepdv);
+		
+		*/
 	}
 
 }

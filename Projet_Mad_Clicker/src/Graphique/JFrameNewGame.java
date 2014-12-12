@@ -136,6 +136,7 @@ public class JFrameNewGame extends JFrame {
 		btnConfirmer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Executable.nouvelle_partie(textField.getText());
+				
 				//Executable.frame1.setLblNomDuJoueur(textField.getText());
 				//Executable.infos.setNom(textField.getText());
 				/*Executable.frame1.setLblNiveauDuJoueur("5");
