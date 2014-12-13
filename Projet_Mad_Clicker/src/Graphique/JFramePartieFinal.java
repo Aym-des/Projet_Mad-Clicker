@@ -192,7 +192,7 @@ public class JFramePartieFinal extends JFrame{
 	public JFramePartieFinal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage("Images/Icones/Icone Crossed Swords.png"));
-		setBounds(100, 100, 1100, 750);
+		setBounds(100, 100, 1100, 800);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -224,9 +224,9 @@ public class JFramePartieFinal extends JFrame{
 		label_ImgMadClicker.setIcon(new ImageIcon("C:\\Users\\Jorge\\Documents\\GitHub\\Projet_Mad-Clicker\\Projet_Mad_Clicker\\Images\\Crossed Swords.png"));
 		panelPartie.add(label_ImgMadClicker);
 
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.LIGHT_GRAY);
-		panelPartie.add(panel);
+		JPanel panelPartie_2 = new JPanel();
+		panelPartie_2.setBackground(Color.LIGHT_GRAY);
+		panelPartie.add(panelPartie_2);
 
 		ImageIcon icoNewGame = new ImageIcon("Images/Icones/Icone New Game.png");
 		JButton btnNewButton_4 = new JButton("Nouvelle partie", icoNewGame);
@@ -239,7 +239,7 @@ public class JFramePartieFinal extends JFrame{
 				//Parametres.nouvellePartie();
 			}
 		});
-		panel.add(btnNewButton_4);
+		panelPartie_2.add(btnNewButton_4);
 
 		ImageIcon icoQuit = new ImageIcon("Images/Icones/Icone Quitter.png");
 		JButton btnNewButton_5 = new JButton("Quitter", icoQuit);
@@ -250,7 +250,7 @@ public class JFramePartieFinal extends JFrame{
 				System.exit(0);
 			}
 		});
-		panel.add(btnNewButton_5);
+		panelPartie_2.add(btnNewButton_5);
 
 		JPanel panel_Infos = new JPanel();
 		panel_Infos.setBorder(null);
@@ -371,7 +371,7 @@ public class JFramePartieFinal extends JFrame{
 		lblListeDesPouvoirs.setForeground(new Color(105, 105, 105));
 		lblListeDesPouvoirs.setFont(new Font("Verdana", Font.BOLD, 22));
 		GridBagConstraints gbc_lblListeDesPouvoirs = new GridBagConstraints();
-		gbc_lblListeDesPouvoirs.insets = new Insets(50, 0, 20, 0);
+		gbc_lblListeDesPouvoirs.insets = new Insets(100, 0, 20, 0);
 		gbc_lblListeDesPouvoirs.gridx = 0;
 		gbc_lblListeDesPouvoirs.gridy = 0;
 		panelOuest.add(lblListeDesPouvoirs, gbc_lblListeDesPouvoirs);
@@ -444,6 +444,230 @@ public class JFramePartieFinal extends JFrame{
 		gbc_btnPouv4.gridx = 0;
 		gbc_btnPouv4.gridy = 4;
 		panelOuest.add(btnPouv4, gbc_btnPouv4);
+		
+		JPanel panelCentre = new JPanel();
+		panelCentre.setBackground(Color.LIGHT_GRAY);
+		contentPane.add(panelCentre, BorderLayout.CENTER);
+		GridBagLayout gbl_panel_1 = new GridBagLayout();
+		gbl_panel_1.columnWidths = new int[]{0, 0, 0, 0};
+		gbl_panel_1.rowHeights = new int[]{0, 0, 0, 0};
+		gbl_panel_1.columnWeights = new double[]{1.0, 1.0, 1.0, Double.MIN_VALUE};
+		gbl_panel_1.rowWeights = new double[]{1.0, 1.0, 1.0, Double.MIN_VALUE};
+		panelCentre.setLayout(gbl_panel_1);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(Color.LIGHT_GRAY);
+		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
+		gbc_panel_1.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_1.fill = GridBagConstraints.BOTH;
+		gbc_panel_1.gridx = 0;
+		gbc_panel_1.gridy = 0;
+		panelCentre.add(panel_1, gbc_panel_1);
+		panel_1.setLayout(new BoxLayout(panel_1, BoxLayout.Y_AXIS));
+		
+		JLabel lblNewLabel_1 = new JLabel("monstre.nom");
+		lblNewLabel_1.setFont(new Font("Verdana", Font.PLAIN, 12));
+		lblNewLabel_1.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel_1.add(lblNewLabel_1);
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setSize(200, 200);
+		btnNewButton.setBackground(Color.LIGHT_GRAY);
+		btnNewButton.setSize(200, 200);
+		btnNewButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel_1.add(btnNewButton);
+		
+		JLabel lblNewLabel_2 = new JLabel("monstre.pdv");
+		lblNewLabel_2.setFont(new Font("Verdana", Font.PLAIN, 12));
+		lblNewLabel_2.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel_1.add(lblNewLabel_2);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(Color.LIGHT_GRAY);
+		GridBagConstraints gbc_panel_2 = new GridBagConstraints();
+		gbc_panel_2.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_2.fill = GridBagConstraints.BOTH;
+		gbc_panel_2.gridx = 1;
+		gbc_panel_2.gridy = 0;
+		panelCentre.add(panel_2, gbc_panel_2);
+		panel_2.setLayout(new BoxLayout(panel_2, BoxLayout.Y_AXIS));
+		
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel_2.add(lblNewLabel_3);
+		
+		JButton btnNewButton_1 = new JButton("");
+		btnNewButton_1.setIcon(new ImageIcon("Images/Images Redimensionnées/Minotaure.png"));
+		btnNewButton_1.setBackground(Color.LIGHT_GRAY);
+		btnNewButton_1.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel_2.add(btnNewButton_1);
+		
+		JLabel lblNewLabel_4 = new JLabel("");
+		lblNewLabel_4.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel_2.add(lblNewLabel_4);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(Color.LIGHT_GRAY);
+		GridBagConstraints gbc_panel_3 = new GridBagConstraints();
+		gbc_panel_3.insets = new Insets(0, 0, 5, 0);
+		gbc_panel_3.fill = GridBagConstraints.BOTH;
+		gbc_panel_3.gridx = 2;
+		gbc_panel_3.gridy = 0;
+		panelCentre.add(panel_3, gbc_panel_3);
+		panel_3.setLayout(new BoxLayout(panel_3, BoxLayout.Y_AXIS));
+		
+		JLabel lblNewLabel_5 = new JLabel("");
+		lblNewLabel_5.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel_3.add(lblNewLabel_5);
+		
+		JButton btnNewButton_2 = new JButton("");
+		btnNewButton_2.setIcon(new ImageIcon("Images/Images Redimensionnées/Minotaure.png"));
+		btnNewButton_2.setBackground(Color.LIGHT_GRAY);
+		btnNewButton_2.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel_3.add(btnNewButton_2);
+		
+		JLabel lblNewLabel_6 = new JLabel("");
+		lblNewLabel_6.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel_3.add(lblNewLabel_6);
+		
+		JPanel panel_4 = new JPanel();
+		panel_4.setBackground(Color.LIGHT_GRAY);
+		GridBagConstraints gbc_panel_4 = new GridBagConstraints();
+		gbc_panel_4.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_4.fill = GridBagConstraints.BOTH;
+		gbc_panel_4.gridx = 0;
+		gbc_panel_4.gridy = 1;
+		panelCentre.add(panel_4, gbc_panel_4);
+		panel_4.setLayout(new BoxLayout(panel_4, BoxLayout.Y_AXIS));
+		
+		JLabel lblNewLabel_7 = new JLabel("");
+		lblNewLabel_7.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel_4.add(lblNewLabel_7);
+		
+		JButton btnNewButton_3 = new JButton("");
+		btnNewButton_3.setIcon(new ImageIcon("Images/Images Redimensionnées/Minotaure.png"));
+		btnNewButton_3.setBackground(Color.LIGHT_GRAY);
+		btnNewButton_3.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel_4.add(btnNewButton_3);
+		
+		JLabel lblNewLabel_8 = new JLabel("");
+		lblNewLabel_8.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel_4.add(lblNewLabel_8);
+		
+		JPanel panel_5 = new JPanel();
+		panel_5.setBackground(Color.LIGHT_GRAY);
+		GridBagConstraints gbc_panel_5 = new GridBagConstraints();
+		gbc_panel_5.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_5.fill = GridBagConstraints.BOTH;
+		gbc_panel_5.gridx = 1;
+		gbc_panel_5.gridy = 1;
+		panelCentre.add(panel_5, gbc_panel_5);
+		panel_5.setLayout(new BoxLayout(panel_5, BoxLayout.Y_AXIS));
+		
+		JLabel lblNewLabel_9 = new JLabel("");
+		lblNewLabel_9.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel_5.add(lblNewLabel_9);
+		
+		JButton btnNewButton_6 = new JButton("");
+		btnNewButton_6.setBackground(Color.LIGHT_GRAY);
+		btnNewButton_6.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel_5.add(btnNewButton_6);
+		
+		JLabel lblNewLabel_10 = new JLabel("");
+		lblNewLabel_10.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel_5.add(lblNewLabel_10);
+		
+		JPanel panel_6 = new JPanel();
+		panel_6.setBackground(Color.LIGHT_GRAY);
+		GridBagConstraints gbc_panel_6 = new GridBagConstraints();
+		gbc_panel_6.insets = new Insets(0, 0, 5, 0);
+		gbc_panel_6.fill = GridBagConstraints.BOTH;
+		gbc_panel_6.gridx = 2;
+		gbc_panel_6.gridy = 1;
+		panelCentre.add(panel_6, gbc_panel_6);
+		panel_6.setLayout(new BoxLayout(panel_6, BoxLayout.Y_AXIS));
+		
+		JLabel lblNewLabel_11 = new JLabel("");
+		lblNewLabel_11.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel_6.add(lblNewLabel_11);
+		
+		JButton btnNewButton_7 = new JButton("");
+		btnNewButton_7.setBackground(Color.LIGHT_GRAY);
+		btnNewButton_7.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel_6.add(btnNewButton_7);
+		
+		JLabel lblNewLabel_13 = new JLabel("");
+		lblNewLabel_13.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel_6.add(lblNewLabel_13);
+		
+		JPanel panel_7 = new JPanel();
+		panel_7.setBackground(Color.LIGHT_GRAY);
+		GridBagConstraints gbc_panel_7 = new GridBagConstraints();
+		gbc_panel_7.insets = new Insets(0, 0, 0, 5);
+		gbc_panel_7.fill = GridBagConstraints.BOTH;
+		gbc_panel_7.gridx = 0;
+		gbc_panel_7.gridy = 2;
+		panelCentre.add(panel_7, gbc_panel_7);
+		panel_7.setLayout(new BoxLayout(panel_7, BoxLayout.Y_AXIS));
+		
+		JLabel lblNewLabel_14 = new JLabel("");
+		lblNewLabel_14.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel_7.add(lblNewLabel_14);
+		
+		JButton btnNewButton_8 = new JButton("");
+		btnNewButton_8.setIcon(new ImageIcon("Images/Images Redimensionnées/Minotaure.png"));
+		btnNewButton_8.setBackground(Color.LIGHT_GRAY);
+		btnNewButton_8.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel_7.add(btnNewButton_8);
+		
+		JLabel lblNewLabel_17 = new JLabel("");
+		lblNewLabel_17.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel_7.add(lblNewLabel_17);
+		
+		JPanel panel_8 = new JPanel();
+		panel_8.setBackground(Color.LIGHT_GRAY);
+		GridBagConstraints gbc_panel_8 = new GridBagConstraints();
+		gbc_panel_8.insets = new Insets(0, 0, 0, 5);
+		gbc_panel_8.fill = GridBagConstraints.BOTH;
+		gbc_panel_8.gridx = 1;
+		gbc_panel_8.gridy = 2;
+		panelCentre.add(panel_8, gbc_panel_8);
+		panel_8.setLayout(new BoxLayout(panel_8, BoxLayout.Y_AXIS));
+		
+		JLabel lblNewLabel_15 = new JLabel("");
+		lblNewLabel_15.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel_8.add(lblNewLabel_15);
+		
+		JButton btnNewButton_9 = new JButton("");
+		btnNewButton_9.setBackground(Color.LIGHT_GRAY);
+		btnNewButton_9.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel_8.add(btnNewButton_9);
+		
+		JLabel lblNewLabel_16 = new JLabel("");
+		lblNewLabel_16.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel_8.add(lblNewLabel_16);
+		
+		JPanel panel_9 = new JPanel();
+		panel_9.setBackground(Color.LIGHT_GRAY);
+		GridBagConstraints gbc_panel_9 = new GridBagConstraints();
+		gbc_panel_9.fill = GridBagConstraints.BOTH;
+		gbc_panel_9.gridx = 2;
+		gbc_panel_9.gridy = 2;
+		panelCentre.add(panel_9, gbc_panel_9);
+		panel_9.setLayout(new BoxLayout(panel_9, BoxLayout.Y_AXIS));
+		
+		JLabel lblNewLabel_12 = new JLabel("");
+		lblNewLabel_12.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel_9.add(lblNewLabel_12);
+		
+		JButton btnNewButton_10 = new JButton("");
+		btnNewButton_10.setBackground(Color.LIGHT_GRAY);
+		btnNewButton_10.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel_9.add(btnNewButton_10);
+		
+		JLabel lblNewLabel_18 = new JLabel("");
+		lblNewLabel_18.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel_9.add(lblNewLabel_18);
 
 		
 		/*JPanel panelInterface = new JPanel();
