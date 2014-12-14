@@ -71,7 +71,8 @@ public class Monstre extends JFrame {
 	}
 
 
-
+//////////////////Modifier le constructeur pour faire pop des monstres bas niveau normaux/////////////////////////////
+/////////////////Crée un constructeur Pour faire apparaitre un monstre au hasard selon les stats définies dans Stats monstres
 
 	public Monstre(int inset1, int inset2, int inset3, int inset4,int axe_X, int axe_Y, int ind){
 		
