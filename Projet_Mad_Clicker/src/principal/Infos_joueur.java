@@ -17,6 +17,8 @@ package principal;
 //Enlever les commentaires des attributs PRIVATE et PROTECTED --> Inutiles
 //////////////////////////////////////////////////
 
+//// CLASSE A SUPPRIMER///////////
+
 
 public class Infos_joueur {
 	

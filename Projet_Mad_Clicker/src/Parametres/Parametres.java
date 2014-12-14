@@ -41,9 +41,25 @@ public class Parametres {
 	 */
 	public final int DEFAULT_PIECES = 0;
 	/**
+	 * DEFAULT_EXPERIENCE Constante entière contenant le nombre de points d'experience de départ
+	 */
+	public final int DEFAULT_EXPERIENCE = 0;
+	/**
+	 * DEFAULT_NB_VICTIMES Constante entière contenant le nombre de victimes par défaut
+	 */
+	public final int DEFAULT_NB_VICTIMES = 0;
+	/**
+	 * DEFAULT_NB_VICTIMES Constante entière contenant le nombre de clics par défault
+	 */
+	public final int DEFAULT_NB_CLICS = 0;
+	/**
 	 * ADD_PDV  est une constante entière permettant d'augmenter les points de vie de la cible
 	 */
 	public final int ADD_PDV = 50;
+	/**
+	 * ADD_DPC Est une constante entière Définissant le nombre de dégat par clics gagnés lors de la prise d'un niveau
+	 */
+	public final int ADD_DPC = 10;
 	/**
 	 * ADD_GAIN est une constante entière permettant d'augmenter le gain provenant de la cible
 	 */

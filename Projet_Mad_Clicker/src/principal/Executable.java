@@ -3,11 +3,17 @@
  */
 package principal;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.GridBagLayout;
+
+import javax.swing.JPanel;
 
 import Graphique.JFramePartieFinal;
 import Créature.Joueur;
-import Créature.MonstreEssais;
+import Créature.Monstre;
+import Créature.StatsMonstres;
 
 
 //import Interface.Controleur;
@@ -44,9 +50,26 @@ public class Executable {
 	/**
 	 * Les infos sur le joueur, en chaines de caractere
 	 */	
-	public static Infos_joueur infos;	
+	//public static Infos_joueur infos;	
+	public static StatsMonstres gain_par_niv_monstres;
 	
-	public static MonstreEssais[] tb_monstres = new MonstreEssais[10];
+	public static Monstre[] tb_monstres = new Monstre[6];
+	
+	public static JPanel paneldeJeu;
+	
+	public static void nouveauPaneldeJeu(){
+		paneldeJeu = new JPanel();
+		paneldeJeu.setBackground(Color.LIGHT_GRAY);
+		frame1.add(paneldeJeu, BorderLayout.CENTER);
+		GridBagLayout gbl_panelJeu = new GridBagLayout();
+		gbl_panelJeu.columnWidths = new int[]{0, 0, 0, 0};
+		gbl_panelJeu.rowHeights = new int[]{0, 0, 0, 0};
+		gbl_panelJeu.columnWeights = new double[]{1.0, 1.0, 1.0, Double.MIN_VALUE};
+		gbl_panelJeu.rowWeights = new double[]{1.0, 1.0, 1.0, Double.MIN_VALUE};
+		paneldeJeu.setLayout(gbl_panelJeu);
+		
+		
+	}
 	
 	/**
 	 * Méthode réinitilisant toutes les infos du joueurs aux paramètres par défaults
@@ -59,19 +82,28 @@ public class Executable {
 		Le_Joueur.setDpc(15);
 		Le_Joueur.setDps(param.DEFAULT_DPS);
 		Le_Joueur.setPieces(param.DEFAULT_PIECES);
-		infos.setNom(Le_Joueur.getNom());
-		infos.setNiveau(Le_Joueur.getNiveau());
-		infos.setDpc(Le_Joueur.getDpc());
-		infos.setDps(Le_Joueur.getDps());
-		infos.setPieces(Le_Joueur.getPieces());
 		frame1.setLblNomDuJoueur(nom);
-		frame1.setLblNiveauDuJoueur(infos.getNiveau());
-		frame1.setLblDegatsParClics(infos.getDpc());
-		frame1.setLblDegatsParSecondes(infos.getDps());
-		frame1.setLblNombreDePieces(infos.getPieces());
+		frame1.setLblNiveauDuJoueur(Le_Joueur.getNiveau());
+		frame1.setLblDegatsParClics(Le_Joueur.getDpc());
+		frame1.setLblDegatsParSecondes(Le_Joueur.getDps());
+		frame1.setLblNombreDePieces(Le_Joueur.getPieces());
 		//Pour les tableaux de monstre : Faire un tableau d'indices libre + une méthode de choix d'indice au hasard.
 		//L'indice choisi sera supprimer du tableau
-		tb_monstres[1] = new MonstreEssais();
+		tb_monstres[0] = new Monstre(0, 0, 5, 5, 0, 0, 0);
+		tb_monstres[1] = new Monstre(0, 0, 5, 5, 1, 0, 1);
+		tb_monstres[2] = new Monstre(0, 0, 5, 0, 2, 0, 2);
+		tb_monstres[3] = new Monstre(0, 0, 5, 5, 0, 1, 3);
+		tb_monstres[4] = new Monstre(0, 0, 5, 5, 1, 1, 4);
+		tb_monstres[5] = new Monstre(0, 0, 5, 0, 2, 1, 5);
+		
+		frame1.repaint();
+		/*tb_monstres[6] = new MonstreEssais(0, 0, 0, 5, 0, 2, 6);
+		tb_monstres[7] = new MonstreEssais(0, 0, 0, 5, 1, 2, 7);
+		tb_monstres[8] = new MonstreEssais(0, 0, 0, 0, 2, 2, 8);
+		
+		
+		
+		
 		/*
 		 * OU 
 		 * On crée un tableau de x monstre (constructeur spécial) on définit leurs coordonnées au début.
@@ -83,14 +115,24 @@ public class Executable {
 		 * On rend se monstre actif et donc visible
 		 * Quand on le tue, il redevient invisible et inactif et on fait toutes les actions nécessaire pour dire qu'on l'a tuer qu'on ramasse x pieces etc.
 		 */
-		
-	}
+		}
+	
 	
 	public static void supprMonstre(int indice){
 		System.out.println(indice);
-		frame1.remove(Executable.tb_monstres[indice].panelMonstre);
-		tb_monstres[1] = null;
+		Le_Joueur.setPieces(tb_monstres[indice].valeurPiece);
+		frame1.setLblNombreDePieces(Le_Joueur.getPieces());
+		Le_Joueur.setNbVictimes(1);
+	    tb_monstres[indice].panelMonstre.setVisible(false);
+	    Le_Joueur.setExperience(tb_monstres[indice].valeurXp);
+	    if(Le_Joueur.getExperience() >= ((Le_Joueur.getNiveau() + 1) * 100) ){
+	    	Le_Joueur.setNiveau(Le_Joueur.getNiveau() + 1);
+	    	Le_Joueur.setDpc(Le_Joueur.getNiveau() + param.ADD_DPC);
+	    	frame1.setLblNiveauDuJoueur(Le_Joueur.getNiveau());
+	    	frame1.setLblDegatsParClics(Le_Joueur.getDpc());
+	    }
 		frame1.repaint();
+		//System.out.println(Le_Joueur.getNbVictimes());
 	}
 	
 	/**
@@ -100,7 +142,8 @@ public class Executable {
 		
 		param = new Parametres();
 		Le_Joueur = new Joueur(param);
-		infos = new Infos_joueur(Le_Joueur.getNom(), Le_Joueur.getNiveau(), Le_Joueur.getDpc(), Le_Joueur.getDps(), Le_Joueur.getPieces());		
+		//infos = new Infos_joueur(Le_Joueur.getNom(), Le_Joueur.getNiveau(), Le_Joueur.getDpc(), Le_Joueur.getDps(), Le_Joueur.getPieces());
+		StatsMonstres GainparNivMonstres = new StatsMonstres();
 		
 		/*
 		System.out.println();
@@ -121,6 +164,7 @@ public class Executable {
 			
 			}
 		});
+		
 		
 
 	}

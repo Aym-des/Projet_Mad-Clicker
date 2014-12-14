@@ -102,8 +102,8 @@ public class JFramePartieFinal extends JFrame{
 	 * Permet de modifier la chaine qu'affiche le JLabel.
 	 * @param NiveauJoueur Le niveau de joueur à afficher
 	 */
-	public void setLblNiveauDuJoueur(String NiveauJoueur) {
-		lblNiveauDuJoueur.setText(NiveauJoueur);
+	public void setLblNiveauDuJoueur(int NiveauJoueur) {
+		lblNiveauDuJoueur.setText(Integer.toString(NiveauJoueur));
 	}
 
 
@@ -122,8 +122,8 @@ public class JFramePartieFinal extends JFrame{
 	 * Permet de modifier la chaine qu'affiche le JLabel.
 	 * @param dpc Le nombre de degats par clics a afficher
 	 */
-	public void setLblDegatsParClics(String dpc) {
-		lblDegatsParClics.setText(dpc);
+	public void setLblDegatsParClics(int dpc) {
+		lblDegatsParClics.setText(Integer.toString(dpc));
 	}
 
 
@@ -142,8 +142,8 @@ public class JFramePartieFinal extends JFrame{
 	 * Permet de modifier la chaine qu'affiche le JLabel.
 	 * @param dps Le nombre de degats par seconde a afficher
 	 */
-	public void setLblDegatsParSecondes(String dps) {
-		lblDegatsParSecondes.setText(dps);
+	public void setLblDegatsParSecondes(int dps) {
+		lblDegatsParSecondes.setText(Integer.toString(dps));
 	}
 
 
@@ -162,8 +162,8 @@ public class JFramePartieFinal extends JFrame{
 	 * Permet de modifier la chaine qu'affiche le JLabel.
 	 * @param nbpieces Le nombre de pieces a afficher
 	 */
-	public void setLblNombreDePieces(String nbpieces) {
-		lblNombreDePieces.setText(nbpieces);
+	public void setLblNombreDePieces(int nbpieces) {
+		lblNombreDePieces.setText(Integer.toString(nbpieces));
 	}
 
 
@@ -268,7 +268,7 @@ public class JFramePartieFinal extends JFrame{
 		gbl_panel_Infos.columnWeights = new double[]{1.0, 0.0, Double.MIN_VALUE};
 		gbl_panel_Infos.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel_Infos.setLayout(gbl_panel_Infos);
-		lblNomDuJoueur = new JLabel(Executable.infos.getNom());//informations.getNom()
+		lblNomDuJoueur = new JLabel(Executable.Le_Joueur.getNom());
 		lblNomDuJoueur.setForeground(new Color(105, 105, 105));
 		lblNomDuJoueur.setFont(new Font("Verdana", Font.BOLD, 22));
 		GridBagConstraints gbc_lblNomDuJoueur = new GridBagConstraints();
@@ -288,7 +288,7 @@ public class JFramePartieFinal extends JFrame{
 		gbc_lblNewLabel.gridy = 1;
 		panel_Infos.add(lblNewLabel, gbc_lblNewLabel);
 
-		lblNiveauDuJoueur = new JLabel(Executable.infos.getNiveau());
+		lblNiveauDuJoueur = new JLabel(Integer.toString(Executable.Le_Joueur.getNiveau()));
 		lblNiveauDuJoueur.setForeground(new Color(105, 105, 105));
 		lblNiveauDuJoueur.setFont(new Font("Verdana", Font.BOLD, 18));
 		GridBagConstraints gbc_lblNiveauDuJoueur = new GridBagConstraints();
@@ -308,7 +308,7 @@ public class JFramePartieFinal extends JFrame{
 		gbc_lblDgtsParClic.gridy = 2;
 		panel_Infos.add(lblDgtsParClic, gbc_lblDgtsParClic);
 
-		lblDegatsParClics = new JLabel(Executable.infos.getDpc());
+		lblDegatsParClics = new JLabel(Integer.toString(Executable.Le_Joueur.getDpc()));
 		lblDegatsParClics.setForeground(new Color(105, 105, 105));
 		lblDegatsParClics.setFont(new Font("Verdana", Font.BOLD, 18));
 		GridBagConstraints gbc_lblDegatsParClics = new GridBagConstraints();
@@ -328,7 +328,7 @@ public class JFramePartieFinal extends JFrame{
 				gbc_lblDgtsParSec.gridy = 3;
 				panel_Infos.add(lblDgtsParSec, gbc_lblDgtsParSec);
 		
-				lblDegatsParSecondes = new JLabel(Executable.infos.getDps());
+				lblDegatsParSecondes = new JLabel(Integer.toString(Executable.Le_Joueur.getDps()));
 				lblDegatsParSecondes.setForeground(new Color(105, 105, 105));
 				lblDegatsParSecondes.setFont(new Font("Verdana", Font.BOLD, 18));
 				GridBagConstraints gbc_lblDegatsParSecondes = new GridBagConstraints();
@@ -348,7 +348,7 @@ public class JFramePartieFinal extends JFrame{
 				gbc_lblPieces.gridy = 4;
 				panel_Infos.add(lblPieces, gbc_lblPieces);
 				
-				lblNombreDePieces = new JLabel(Executable.infos.getPieces());
+				lblNombreDePieces = new JLabel(Integer.toString(Executable.Le_Joueur.getPieces()));
 				lblNombreDePieces.setForeground(new Color(105, 105, 105));
 				lblNombreDePieces.setFont(new Font("Verdana", Font.BOLD, 18));
 				GridBagConstraints gbc_lblNombreDePieces = new GridBagConstraints();
@@ -445,6 +445,9 @@ public class JFramePartieFinal extends JFrame{
 		gbc_btnPouv4.gridy = 4;
 		panelOuest.add(btnPouv4, gbc_btnPouv4);
 		
+		/*		
+		//PLATEAU DE JEU
+		
 		JPanel panelCentre = new JPanel();
 		panelCentre.setBackground(Color.LIGHT_GRAY);
 		contentPane.add(panelCentre, BorderLayout.CENTER);
@@ -454,6 +457,8 @@ public class JFramePartieFinal extends JFrame{
 		gbl_panel_1.columnWeights = new double[]{1.0, 1.0, 1.0, Double.MIN_VALUE};
 		gbl_panel_1.rowWeights = new double[]{1.0, 1.0, 1.0, Double.MIN_VALUE};
 		panelCentre.setLayout(gbl_panel_1);
+		
+		//MONSTRE 1
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(Color.LIGHT_GRAY);
@@ -482,6 +487,9 @@ public class JFramePartieFinal extends JFrame{
 		lblNewLabel_2.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel_1.add(lblNewLabel_2);
 		
+		
+		//Monstre 2
+		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(Color.LIGHT_GRAY);
 		GridBagConstraints gbc_panel_2 = new GridBagConstraints();
@@ -497,7 +505,7 @@ public class JFramePartieFinal extends JFrame{
 		panel_2.add(lblNewLabel_3);
 		
 		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setIcon(new ImageIcon("Images/Images Redimensionnées/Minotaure.png"));
+		btnNewButton_1.setIcon(new ImageIcon("Images/Images/Minotaure.png"));
 		btnNewButton_1.setBackground(Color.LIGHT_GRAY);
 		btnNewButton_1.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel_2.add(btnNewButton_1);
@@ -505,6 +513,8 @@ public class JFramePartieFinal extends JFrame{
 		JLabel lblNewLabel_4 = new JLabel("");
 		lblNewLabel_4.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel_2.add(lblNewLabel_4);
+		
+		//Monstre 3
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBackground(Color.LIGHT_GRAY);
@@ -521,7 +531,7 @@ public class JFramePartieFinal extends JFrame{
 		panel_3.add(lblNewLabel_5);
 		
 		JButton btnNewButton_2 = new JButton("");
-		btnNewButton_2.setIcon(new ImageIcon("Images/Images Redimensionnées/Minotaure.png"));
+		btnNewButton_2.setIcon(new ImageIcon("Images/Minotaure.png"));
 		btnNewButton_2.setBackground(Color.LIGHT_GRAY);
 		btnNewButton_2.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel_3.add(btnNewButton_2);
@@ -529,6 +539,8 @@ public class JFramePartieFinal extends JFrame{
 		JLabel lblNewLabel_6 = new JLabel("");
 		lblNewLabel_6.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel_3.add(lblNewLabel_6);
+		
+		//MONSTRE 4
 		
 		JPanel panel_4 = new JPanel();
 		panel_4.setBackground(Color.LIGHT_GRAY);
@@ -545,7 +557,7 @@ public class JFramePartieFinal extends JFrame{
 		panel_4.add(lblNewLabel_7);
 		
 		JButton btnNewButton_3 = new JButton("");
-		btnNewButton_3.setIcon(new ImageIcon("Images/Images Redimensionnées/Minotaure.png"));
+		btnNewButton_3.setIcon(new ImageIcon("Images/Minotaure.png"));
 		btnNewButton_3.setBackground(Color.LIGHT_GRAY);
 		btnNewButton_3.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel_4.add(btnNewButton_3);
@@ -553,6 +565,8 @@ public class JFramePartieFinal extends JFrame{
 		JLabel lblNewLabel_8 = new JLabel("");
 		lblNewLabel_8.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel_4.add(lblNewLabel_8);
+		
+		//MONSTRE 5
 		
 		JPanel panel_5 = new JPanel();
 		panel_5.setBackground(Color.LIGHT_GRAY);
@@ -577,6 +591,8 @@ public class JFramePartieFinal extends JFrame{
 		lblNewLabel_10.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel_5.add(lblNewLabel_10);
 		
+		//MONSTRE 6
+		
 		JPanel panel_6 = new JPanel();
 		panel_6.setBackground(Color.LIGHT_GRAY);
 		GridBagConstraints gbc_panel_6 = new GridBagConstraints();
@@ -600,6 +616,8 @@ public class JFramePartieFinal extends JFrame{
 		lblNewLabel_13.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel_6.add(lblNewLabel_13);
 		
+		//MONSTRE 7
+		
 		JPanel panel_7 = new JPanel();
 		panel_7.setBackground(Color.LIGHT_GRAY);
 		GridBagConstraints gbc_panel_7 = new GridBagConstraints();
@@ -615,7 +633,7 @@ public class JFramePartieFinal extends JFrame{
 		panel_7.add(lblNewLabel_14);
 		
 		JButton btnNewButton_8 = new JButton("");
-		btnNewButton_8.setIcon(new ImageIcon("Images/Images Redimensionnées/Minotaure.png"));
+		btnNewButton_8.setIcon(new ImageIcon("Images/Minotaure.png"));
 		btnNewButton_8.setBackground(Color.LIGHT_GRAY);
 		btnNewButton_8.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel_7.add(btnNewButton_8);
@@ -623,6 +641,8 @@ public class JFramePartieFinal extends JFrame{
 		JLabel lblNewLabel_17 = new JLabel("");
 		lblNewLabel_17.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel_7.add(lblNewLabel_17);
+		
+		//MONSTRE 8
 		
 		JPanel panel_8 = new JPanel();
 		panel_8.setBackground(Color.LIGHT_GRAY);
@@ -646,6 +666,8 @@ public class JFramePartieFinal extends JFrame{
 		JLabel lblNewLabel_16 = new JLabel("");
 		lblNewLabel_16.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel_8.add(lblNewLabel_16);
+		
+		//MONSTRE 9
 		
 		JPanel panel_9 = new JPanel();
 		panel_9.setBackground(Color.LIGHT_GRAY);

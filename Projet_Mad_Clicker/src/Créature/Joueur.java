@@ -12,6 +12,9 @@ public class Joueur {
 	private int dps;
 	private int niveau;
 	private int pieces;
+	private int nbVictimes;
+	private int nbclics;
+	private int experience;
 	
 	//***** GETTERS & SETTERS *****
 	
@@ -43,7 +46,7 @@ public class Joueur {
 	 */
 
 	public void setDpc(int degatparclic) {
-		dpc = degatparclic;
+		dpc = dpc + degatparclic;
 	}
 	
 	/**
@@ -91,7 +94,56 @@ public class Joueur {
 	 */
 
 	public void setPieces(int nbpieces) {
-		pieces = nbpieces;
+		
+		if(nbpieces == 0){
+			pieces = 0;
+		}
+		else{
+		pieces = pieces + nbpieces;
+		}
+	}
+	/**
+	 * @return Le montant de l'experience du joueur
+	 */
+	public int getExperience(){
+		return this.experience;
+	}
+	
+	public void setExperience(int nbxp){
+		if(nbxp == 0){
+			experience = 0;
+		}
+		else{
+			experience = experience + nbxp;
+		}
+	}
+	/**
+	 * 
+	 * @return Le nombre de victimes du joueur
+	 */
+	public int getNbVictimes(){
+		return this.nbVictimes;
+	}
+	/**
+	 * 
+	 * @param nb Le nombre à rajouter au nombre actuel de victimes
+	 */
+	public void setNbVictimes(int nb){
+		this.nbVictimes = this.nbVictimes + nb;
+	}
+	/**
+	 * 
+	 * @return Le nombre de clics effectués par le joueur
+	 */
+	public int getNbclics(){
+		return this.nbclics;
+	}
+	/**
+	 * 
+	 * @param nb Le nombre  a rajouter au nombre de clics deja effectuer par le joueur
+	 */
+	public void setNbclics(int nb){
+		this.nbclics = this.nbclics + nb;
 	}
 	//*****************************
 	
@@ -104,6 +156,9 @@ public class Joueur {
 		dpc = param.DEFAULT_DPC;
 		dps = param.DEFAULT_DPS;
 		pieces = param.DEFAULT_PIECES;
+		experience = param.DEFAULT_EXPERIENCE;
+		nbVictimes = param.DEFAULT_NB_VICTIMES;
+		nbclics = param.DEFAULT_NB_CLICS;
 	}
 
 }
