@@ -17,6 +17,7 @@ import java.awt.GridBagConstraints;
 
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import javax.swing.Timer;
 
 import java.awt.Color;
 
@@ -45,6 +46,12 @@ public class Monstre extends JFrame {
 	 * indice donne l'indice du mMonstre dans le tableau déclarer dans executable
 	 */
 	public int indice;
+	
+	public Timer dot = null;
+	
+	public int dot_damage;
+	
+	private int tempsEcoule = 0;
 	
 	public boolean estActif;
 	
@@ -76,53 +83,53 @@ public void pop_Monstre(int nb, int niveau_joueur, Parametres param){
 		switch(nb){
 		case 0 : {
 			this.nom = "Minoterreur";
-			this.pdv = (param.GAIN_PDV_MINO) + (this.niveau * param.GAIN_PDV_MINO);
-			this.valeurPiece = (param.GAIN_PIECES_MINO) + (this.niveau * param.GAIN_PDV_MINO);
-			this.valeurXp = (this.niveau * param.GAIN_XP_MINO);
+			this.pdv = param.gainPdvMonstre(param.GAIN_PDV_MINO, this.niveau);
+			this.valeurPiece = param.gainPiecesMonstre(param.GAIN_PIECES_MINO, this.niveau);
+			this.valeurXp = param.gainXpMonstre(param.GAIN_XP_MINO, this.niveau);
 			this.imgMonstre.setIcon(new ImageIcon(param.DEFAULT_NOM_IMAGE_MINO));
 			break;
 		}
 		case 1 :{
 			this.nom = "Zombie";
-			this.pdv = (param.GAIN_PDV_ZOMBIE) + (this.niveau * param.GAIN_PDV_ZOMBIE);
-			this.valeurPiece = (param.GAIN_PIECES_ZOMBIE) + (this.niveau * param.GAIN_PIECES_ZOMBIE);
-			this.valeurXp = (this.niveau * param.GAIN_XP_ZOMBIE);;
+			this.pdv = param.gainPdvMonstre(param.GAIN_PDV_ZOMBIE, this.niveau);
+			this.valeurPiece = param.gainPiecesMonstre(param.GAIN_PIECES_ZOMBIE, this.niveau);
+			this.valeurXp = param.gainXpMonstre(param.GAIN_XP_ZOMBIE, this.niveau);
 			this.imgMonstre.setIcon(new ImageIcon(param.DEFAULT_NOM_IMAGE_ZOMBIE));
 			break;
 		}
 		
 		case 2 :{
 			this.nom = "Punk Gobelin";
-			this.pdv =(param.GAIN_PDV_PUNKGOB) + (this.niveau * param.GAIN_PDV_PUNKGOB);
-			this.valeurPiece =(param.GAIN_PIECES_PUNKGOB) + (this.niveau * param.GAIN_PIECES_PUNKGOB);
-			this.valeurXp = (this.niveau * param.GAIN_XP_PUNKGOB);
+			this.pdv = param.gainPdvMonstre(param.GAIN_PDV_PUNKGOB, this.niveau);
+			this.valeurPiece = param.gainPiecesMonstre(param.GAIN_PIECES_PUNKGOB, this.niveau);
+			this.valeurXp = param.gainXpMonstre(param.GAIN_XP_PUNKGOB, this.niveau);
 			this.imgMonstre.setIcon(new ImageIcon(param.DEFAULT_NOM_IMAGE_PUNKGOB));
 			break;
 		}
 		
 		case 3 :{
 			this.nom = "Gobelin";
-			this.pdv =(param.GAIN_PDV_GOBELIN) + (this.niveau * param.GAIN_PDV_GOBELIN);
-			this.valeurPiece =(param.GAIN_PIECES_GOBELIN) + (this.niveau * param.GAIN_PIECES_GOBELIN);
-			this.valeurXp = (this.niveau * param.GAIN_XP_GOBELIN);
+			this.pdv = param.gainPdvMonstre(param.GAIN_PDV_GOBELIN, this.niveau);
+			this.valeurPiece = param.gainPiecesMonstre(param.GAIN_PIECES_GOBELIN, this.niveau);
+			this.valeurXp = param.gainXpMonstre(param.GAIN_XP_GOBELIN, this.niveau);
 			this.imgMonstre.setIcon(new ImageIcon(param.DEFAULT_NOM_IMAGE_GOBELIN));
 			break;
 		}
 		
 		case 4 :{
 			this.nom = "Gnome";
-			this.pdv =(param.GAIN_PDV_GNOME) + (this.niveau * param.GAIN_PDV_GNOME);
-			this.valeurPiece =(param.GAIN_PIECES_GNOME) + (this.niveau * param.GAIN_PIECES_GNOME);
-			this.valeurXp = (this.niveau * param.GAIN_XP_GNOME);
+			this.pdv = param.gainPdvMonstre(param.GAIN_PDV_GNOME, this.niveau);
+			this.valeurPiece = param.gainPiecesMonstre(param.GAIN_PIECES_GNOME, this.niveau);
+			this.valeurXp = param.gainXpMonstre(param.GAIN_XP_GNOME, this.niveau);
 			this.imgMonstre.setIcon(new ImageIcon(param.DEFAULT_NOM_IMAGE_GNOME));
 			break;
 		}
 			
 		case 5 :{
 			this.nom = "SerpAbeille";
-			this.pdv =(param.GAIN_PDV_SERPABEILLE) + (this.niveau * param.GAIN_PDV_SERPABEILLE);
-			this.valeurPiece =(param.GAIN_PIECES_SERPABEILLE) + (this.niveau * param.GAIN_PIECES_SERPABEILLE);
-			this.valeurXp = (this.niveau * param.GAIN_XP_SERPABEILLE);
+			this.pdv = param.gainPdvMonstre(param.GAIN_PDV_SERPABEILLE, this.niveau);
+			this.valeurPiece = param.gainPiecesMonstre(param.GAIN_PIECES_SERPABEILLE, this.niveau);
+			this.valeurXp = param.gainXpMonstre(param.GAIN_XP_SERPABEILLE, this.niveau);
 			this.imgMonstre.setIcon(new ImageIcon(param.DEFAULT_NOM_IMAGE_SERPABEILLE));
 			break;
 		}
@@ -137,9 +144,6 @@ public void pop_Monstre(int nb, int niveau_joueur, Parametres param){
 	}
 
 	
-	
-//////////////////Modifier le constructeur pour faire pop des monstres bas niveau normaux/////////////////////////////
-/////////////////Crée un constructeur Pour faire apparaitre un monstre au hasard selon les stats définies dans Stats monstres
 
 	public Monstre(int axe_X, int axe_Y, int ind, Parametres param_temp){
 		
@@ -156,7 +160,6 @@ public void pop_Monstre(int nb, int niveau_joueur, Parametres param){
 		panelMonstre = new JPanel();
 		panelMonstre.setBackground(Color.LIGHT_GRAY);
 		GridBagConstraints gbc_panelMonstre = new GridBagConstraints();
-		//gbc_panelMonstre.insets = new Insets(inset1, inset2, inset3, inset4);
 		gbc_panelMonstre.fill = GridBagConstraints.BOTH;
 		gbc_panelMonstre.gridx = axe_X;
 		gbc_panelMonstre.gridy = axe_Y;
@@ -177,13 +180,54 @@ public void pop_Monstre(int nb, int niveau_joueur, Parametres param){
 		imgMonstre.setBackground(Color.LIGHT_GRAY);
 		imgMonstre.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
+				
+				
 				pdv = pdv - (principal.Executable.Le_Joueur.getDpc());
-				lblPdvMonstre.setText(Integer.toString(pdv));
-				if(pdv < 0){
+				lblPdvMonstre.setText(Integer.toString(pdv));				
+				if(pdv <= 0){
 					principal.Executable.supprMonstre(getIndice());
-					/*principal.Executable.frame1.remove(Executable.monster.panelMonstre);
-					principal.Executable.monster = null;
-					principal.Executable.frame1.repaint();*/
+					if(dot != null){
+						dot.stop();
+						dot = null;
+						tempsEcoule = 0;
+					}
+				}
+				
+				if( (principal.Executable.Le_Joueur.getDps() > 0) && (pdv > 0)){
+					
+					dot_damage = principal.Executable.Le_Joueur.getDps();
+						
+					if(dot == null){
+					
+						dot = new Timer(1000, new ActionListener(){
+							public void actionPerformed(ActionEvent e){
+								
+								pdv = pdv - dot_damage;
+								lblPdvMonstre.setText(Integer.toString(pdv));
+								if(pdv <= 0 ){
+									principal.Executable.supprMonstre(getIndice());
+									dot.stop();
+									dot = null;
+									tempsEcoule = 0;
+									dot_damage = 0;
+								}
+								tempsEcoule = tempsEcoule + 1;
+								
+								if(tempsEcoule >= 5){
+									dot.stop();
+									dot = null;
+									tempsEcoule = 0;
+									dot_damage = 0;
+								}
+							
+							}
+						});
+					
+					dot.start();
+					}
+					else{
+						tempsEcoule = 0;
+					}
 				}
 			}
 		});

@@ -46,6 +46,11 @@ public class Parametres {
 	public final int DEFAULT_DPS = 0;
 	
 	/**
+	 * DEFAULT_DPS_TIME est une constante entière définissant le temps durant lequel un dot est actif
+	 */
+	public final int DEFAULT_DOT_TIME = 5;
+	
+	/**
 	 * DEFAULT_PIECES Constante entière contenant le nombre de pièce de départ
 	 */
 	public final int DEFAULT_PIECES = 0;
@@ -55,34 +60,35 @@ public class Parametres {
 	 */
 	public final int DEFAULT_EXPERIENCE = 0;
 	
+	/**
+	 * GAIN_DPC Constante entière contenant le nom de de dégats par clics gagné lors de la prise d'un niveau
+	 */
+	public final int GAIN_DPC = 10;
+	
+	public int gainDpc(int niveauJoueur, int dpcjoueur){
+		
+		int NouveauNbDpc = dpcjoueur + GAIN_DPC + niveauJoueur;
+		return NouveauNbDpc;
+	}
+	
+	public int gainPieces(int piecesJoueur, int piecesMonstre){
+		
+		int NouveauNbPieces = piecesJoueur + piecesMonstre;
+		return NouveauNbPieces;
+	}
+	
+	public int XpNivSuivant(int NiveauJoueur){
+		
+		int xpRequise = ((NiveauJoueur * 100) + (NiveauJoueur * 25));
+		
+		return xpRequise;
+		
+	}
+	
 	
 	/*######################################*/
 	/*##### INFOS CONCERNANT LES MONSTRES #####*/
-	/*
-	public final int DEFAULT_PDV_GOBELIN = 5;
-	public final int DEFAULT_GAIN_GOBELIN = 5;
-	public final String DEFAULT_NOM_IMAGE_GOBELIN = "Images/Gobelin.png";
-	
-	public final int DEFAULT_PDV_GNOME = 10;
-	public final int DEFAULT_GAIN_GNOME = 10;
-	public final String DEFAULT_NOM_IMAGE_GNOME = "Images/Gnome.png";
-	
-	public final int DEFAULT_PDV_ZOMBIE = 15;
-	public final int DEFAULT_GAIN_ZOMBIE = 15;
-	public final String DEFAULT_NOM_IMAGE_ZOMBIE = "Images/Zombie.png";
-	
-	public final int DEFAULT_PDV_PUNKGOB = 50;
-	public final int DEFAULT_GAIN_PUNKGOB = 25;
-	public final String DEFAULT_NOM_IMAGE_PUNKGOB = "Images/Punk Gobelin.png";
-	
-	public final int DEFAULT_PDV_SERPABEILLE = 70;
-	public final int DEFAULT_GAIN_SERPABEILLE = 30;
-	public final String DEFAULT_NOM_IMAGE_SERPABEILLE = "Images/Serpabeille.png";
-	
-	public final int DEFAULT_PDV_MINO = 100;
-	public final int DEFAULT_GAIN_MINO = 50;
-	public final String DEFAULT_NOM_IMAGE_MINO = "Images/Minoterreur.png";
-	*/
+
 	
 	public final int GAIN_PDV_GOBELIN = 8;
 	public final int GAIN_XP_GOBELIN = 5;
@@ -101,26 +107,42 @@ public class Parametres {
 	
 	public final int GAIN_PDV_PUNKGOB = 50;
 	public final int GAIN_XP_PUNKGOB = 25;
-	public final int GAIN_PIECES_PUNKGOB = 50;
+	public final int GAIN_PIECES_PUNKGOB = 30;
 	public final String DEFAULT_NOM_IMAGE_PUNKGOB = "Images/Punk Gobelin.png";
 	
 	public final int GAIN_PDV_SERPABEILLE = 70;
 	public final int GAIN_XP_SERPABEILLE = 30;
-	public final int GAIN_PIECES_SERPABEILLE = 50;
+	public final int GAIN_PIECES_SERPABEILLE = 40;
 	public final String DEFAULT_NOM_IMAGE_SERPABEILLE = "Images/Serpabeille.png";
 	
 	public final int GAIN_PDV_MINO = 100;
 	public final int GAIN_XP_MINO = 40;
-	public final int GAIN_PIECES_MINO = 60;
+	public final int GAIN_PIECES_MINO = 50;
 	public final String DEFAULT_NOM_IMAGE_MINO = "Images/Minoterreur.png";
+	
+	
+	public int gainPdvMonstre(int gainPdvMob, int niveau){
+		int gain = gainPdvMob + (niveau * gainPdvMob);
+		
+		return gain;
+	}
+	
+	public int gainPiecesMonstre(int gainPiecesMob, int niveau){
+		int gain = (niveau * gainPiecesMob);
+		
+		return gain;
+	}
+	
+	public int gainXpMonstre(int gainXpMob, int niveau){
+		
+		int gain = gainXpMob + niveau;
+		
+		return gain;
+	}
 	
 	/*#########################################*/
 	/*##### INFOS CONCERNANT LES PARAMETRES DE LA PARTIE #####*/
-	/**
-	 * NB_MONSTRES est une constante entière contenant le nombre de monstres dans la partie
-	 */
-	public final int NB_MONSTRES = 10;
-	
+
 	/**
 	 * DEFAULT_NB_VICTIMES Constante entière contenant le nombre de victimes par défaut
 	 */
@@ -131,101 +153,33 @@ public class Parametres {
 	 */
 	public final int DEFAULT_NB_CLICS = 0;
 	
-	/**
-	 * nbVictimes indique le nombre de monstres dont leur points de vie sont tombés à 0 au cours de la partie
-	 */
-	public static int nbVictimes = 0;
+
 	
-	/**
-	 * nbClics Indique le nombre de fois ou le joueur a clique rau cours de la partie
-	 */
-	public static int nbClics = 0;
 	/*########################################################*/
 	
-	/**
-	 * ADD_PDV  est une constante entière permettant d'augmenter les points de vie de la cible
-	 */
-	public final int ADD_PDV = 50;
-	/**
-	 * ADD_DPC Est une constante entière Définissant le nombre de dégat par clics gagnés lors de la prise d'un niveau
-	 */
-	public final int ADD_DPC = 10;
-	/**
-	 * ADD_GAIN est une constante entière permettant d'augmenter le gain provenant de la cible
-	 */
-	public final int ADD_GAIN = 5;
 	
+//////////////////////////////////////////////////
+	/////EFFETS POUVOIRS/////
+	// Ici les Gains en dpc et dps procurés par les pouvoirs
 	
-	/*##### GETTERS & SETTERS #####*/
-	/*
-	 * Inutiles car tous en public
-	public int getDEFAULT_PDV_GOBELIN() {
-		return DEFAULT_PDV_GOBELIN;
-	}
-	public int getDEFAULT_GAIN_GOBELIN() {
-		return DEFAULT_GAIN_GOBELIN;
-	}
-	public String getDEFAULT_NOM_IMAGE_GOBELIN() {
-		return DEFAULT_NOM_IMAGE_GOBELIN;
-	}
-	public int getDEFAULT_PDV_GNOME() {
-		return DEFAULT_PDV_GNOME;
-	}
-	public int getDEFAULT_GAIN_GNOME() {
-		return DEFAULT_GAIN_GNOME;
-	}
-	public String getDEFAULT_NOM_IMAGE_GNOME() {
-		return DEFAULT_NOM_IMAGE_GNOME;
-	}
-	public int getDEFAULT_PDV_ZOMBIE() {
-		return DEFAULT_PDV_ZOMBIE;
-	}
-	public int getDEFAULT_GAIN_ZOMBIE() {
-		return DEFAULT_GAIN_ZOMBIE;
-	}
-	public String getDEFAULT_NOM_IMAGE_ZOMBIE() {
-		return DEFAULT_NOM_IMAGE_ZOMBIE;
-	}
-	public int getDEFAULT_PDV_PUNKGOB() {
-		return DEFAULT_PDV_PUNKGOB;
-	}
-	public int getDEFAULT_GAIN_PUNKGOB() {
-		return DEFAULT_GAIN_PUNKGOB;
-	}
-	public String getDEFAULT_NOM_IMAGE_PUNKGOB() {
-		return DEFAULT_NOM_IMAGE_PUNKGOB;
-	}
-	public int getDEFAULT_PDV_SERPABEILLE() {
-		return DEFAULT_PDV_SERPABEILLE;
-	}
-	public int getDEFAULT_GAIN_SERPABEILLE() {
-		return DEFAULT_GAIN_SERPABEILLE;
-	}
-	public String getDEFAULT_NOM_IMAGE_SERPABEILLE() {
-		return DEFAULT_NOM_IMAGE_SERPABEILLE;
-	}
-	public int getDEFAULT_PDV_MINO() {
-		return DEFAULT_PDV_MINO;
-	}
-	public int getDEFAULT_GAIN_MINO() {
-		return DEFAULT_GAIN_MINO;
-	}
-	public String getDEFAULT_NOM_IMAGE_MINO() {
-		return DEFAULT_NOM_IMAGE_MINO;
-	}*/
-	/**
-	 * @return ADD_PDV
-	 */
-	public int getADD_PDV() {
-		return ADD_PDV;
-	}
+		public final int DEFAULT_BUFF_TIME = 5;
 	
-	/**
-	 * @return ADD_GAIN
-	 */
-	public int getADD_GAIN() {
-		return ADD_GAIN;
-	}
-	/*#############################*/
+		public final int COUT_PIECES_POUVOIR_1 = 10;
+		public final int GAIN_DPC_POUVOIR_1 = 20;
+		public final int GAIN_DPS_POUVOIR_1 = 5;
+		
+		public final int COUT_PIECES_POUVOIR_2 = 100;
+		public final int GAIN_DPC_POUVOIR_2 = 200;
+		public final int GAIN_DPS_POUVOIR_2 = 50;		 
+		
+		public final int COUT_PIECES_POUVOIR_3 = 1000;
+		public final int GAIN_DPC_POUVOIR_3 = 2000;
+		public final int GAIN_DPS_POUVOIR_3 = 500;
+		
+		public final int COUT_PIECES_POUVOIR_4 = 10000;
+		public final int GAIN_DPC_POUVOIR_4 = 20000;
+		public final int GAIN_DPS_POUVOIR_4 = 5000;
+		
+
 
 }
