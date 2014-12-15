@@ -67,7 +67,7 @@ public class JFrameNewGame extends JFrame {
 	public JFrameNewGame() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage("Images/Icones/Icone Crossed Swords.png"));
-		setTitle("Mad Clicker");
+		setTitle("Nouvelle Partie");
 		setBounds(100, 100, 350, 160);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
@@ -102,7 +102,6 @@ public class JFrameNewGame extends JFrame {
 		contentPane.add(lblEntrezVotreNom, gbc_lblEntrezVotreNom);
 		
 		textField = new JTextField();
-
 		GridBagConstraints gbc_textField = new GridBagConstraints();
 		gbc_textField.insets = new Insets(0, 0, 15, 0);
 		gbc_textField.fill = GridBagConstraints.HORIZONTAL;

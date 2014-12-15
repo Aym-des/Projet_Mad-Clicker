@@ -85,10 +85,8 @@ public class Parametres {
 		
 	}
 	
-	
 	/*######################################*/
 	/*##### INFOS CONCERNANT LES MONSTRES #####*/
-
 	
 	public final int GAIN_PDV_GOBELIN = 8;
 	public final int GAIN_XP_GOBELIN = 5;
@@ -152,11 +150,7 @@ public class Parametres {
 	 * DEFAULT_NB_VICTIMES Constante entière contenant le nombre de clics par défault
 	 */
 	public final int DEFAULT_NB_CLICS = 0;
-	
-
-	
 	/*########################################################*/
-	
 	
 //////////////////////////////////////////////////
 	/////EFFETS POUVOIRS/////
@@ -180,6 +174,5 @@ public class Parametres {
 		public final int GAIN_DPC_POUVOIR_4 = 20000;
 		public final int GAIN_DPS_POUVOIR_4 = 5000;
 		
-
 
 }

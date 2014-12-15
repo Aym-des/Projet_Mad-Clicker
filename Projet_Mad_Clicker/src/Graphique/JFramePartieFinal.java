@@ -233,7 +233,7 @@ public class JFramePartieFinal extends JFrame{
 
 		JLabel label_ImgMadClicker = new JLabel("");
 		label_ImgMadClicker.setAlignmentX(Component.CENTER_ALIGNMENT);
-		label_ImgMadClicker.setIcon(new ImageIcon("C:\\Users\\Jorge\\Documents\\GitHub\\Projet_Mad-Clicker\\Projet_Mad_Clicker\\Images\\Crossed Swords.png"));
+		label_ImgMadClicker.setIcon(new ImageIcon("Images/Crossed Swords.png"));
 		panelPartie.add(label_ImgMadClicker);
 
 		JPanel panelPartie_2 = new JPanel();
@@ -246,9 +246,8 @@ public class JFramePartieFinal extends JFrame{
 		btnNewButton_4.setBackground(new Color(169, 169, 169));
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JFrameNewGame newGame = new JFrameNewGame();
-				newGame.setVisible(true);
-				//Parametres.nouvellePartie();
+				JFrameModeDeJeu modeDeJeu = new JFrameModeDeJeu();
+				modeDeJeu.setVisible(true);
 			}
 		});
 		panelPartie_2.add(btnNewButton_4);

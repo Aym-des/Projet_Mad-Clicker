@@ -273,6 +273,7 @@ public static int choixMonstre(){
 	public static void main(String[] args) {
 
 		param = new Parametres();
+		//Le_Joueur = new Joueur(param);
 		Le_Joueur = new Joueur();
 
 
@@ -289,6 +290,9 @@ public static int choixMonstre(){
 
 			}
 		});
+		
+
+		//tb_monstres[2].pop_Monstre(3, 2, 1, param);
 		
 	}
 
