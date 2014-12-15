@@ -77,13 +77,12 @@ public class Executable {
 		gbl_panelJeu.columnWeights = new double[]{1.0, 1.0, 1.0, Double.MIN_VALUE};
 		gbl_panelJeu.rowWeights = new double[]{1.0, 1.0, 1.0, Double.MIN_VALUE};
 		paneldeJeu.setLayout(gbl_panelJeu);
-
-
+		
 	}
 
 	/**
 	 * Méthode réinitilisant toutes les infos du joueurs aux paramètres par défaults
-	 * @param nom Les nom de joueur écrit par Le joueur dans le cham de la frameNew game
+	 * @param nom Les nom de joueur écrit par Le joueur dans le champs de la frameNew game
 	 */
 	public static void nouvelle_partie(String nom){
 		Le_Joueur.setNom(nom);
@@ -99,7 +98,7 @@ public class Executable {
 		frame1.setLblNombreDePieces(Le_Joueur.getPieces());
 		frame1.setLblXP(Le_Joueur.getExperience(), 125);
 
-		tempsdeJeu = 60000; // A définir par le choix du joueur
+		tempsdeJeu = 300; // A définir par le choix du joueur
 
 		if(paneldeJeu == null){
 

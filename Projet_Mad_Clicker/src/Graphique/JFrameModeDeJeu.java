@@ -46,7 +46,7 @@ public class JFrameModeDeJeu extends JFrame {
 	 * Create the frame.
 	 */
 	public JFrameModeDeJeu() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage("Images/Icones/Icone Crossed Swords.png"));
 		setTitle("Selection mode de jeu");
 		setBounds(700, 350, 350, 140);

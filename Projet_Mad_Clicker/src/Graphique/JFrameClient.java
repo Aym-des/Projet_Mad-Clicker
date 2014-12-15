@@ -53,7 +53,7 @@ public class JFrameClient extends JFrame {
 	 * Create the frame.
 	 */
 	public JFrameClient() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage("Images/Icones/Icone Crossed Swords.png"));
 		setTitle("Connexion au serveur");
 		setBounds(700, 350, 600, 160);

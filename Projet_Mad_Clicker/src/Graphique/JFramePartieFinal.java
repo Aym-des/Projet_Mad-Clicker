@@ -276,7 +276,7 @@ public class JFramePartieFinal extends JFrame{
 		GridBagLayout gbl_panel_Infos = new GridBagLayout();
 		gbl_panel_Infos.columnWidths = new int[]{0, 0, 0};
 		gbl_panel_Infos.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0};
-		gbl_panel_Infos.columnWeights = new double[]{1.0, 0.0, Double.MIN_VALUE};
+		gbl_panel_Infos.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
 		gbl_panel_Infos.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel_Infos.setLayout(gbl_panel_Infos);
 		lblNomDuJoueur = new JLabel(Executable.Le_Joueur.getNom());
@@ -303,7 +303,7 @@ public class JFramePartieFinal extends JFrame{
 		lblNiveauDuJoueur.setForeground(new Color(105, 105, 105));
 		lblNiveauDuJoueur.setFont(new Font("Verdana", Font.BOLD, 18));
 		GridBagConstraints gbc_lblNiveauDuJoueur = new GridBagConstraints();
-		gbc_lblNiveauDuJoueur.anchor = GridBagConstraints.WEST;
+		gbc_lblNiveauDuJoueur.anchor = GridBagConstraints.EAST;
 		gbc_lblNiveauDuJoueur.insets = new Insets(0, 0, 5, 0);
 		gbc_lblNiveauDuJoueur.gridx = 1;
 		gbc_lblNiveauDuJoueur.gridy = 1;
@@ -324,7 +324,7 @@ public class JFramePartieFinal extends JFrame{
 		lblDegatsParClics.setFont(new Font("Verdana", Font.BOLD, 18));
 		GridBagConstraints gbc_lblDegatsParClics = new GridBagConstraints();
 		gbc_lblDegatsParClics.insets = new Insets(0, 0, 5, 0);
-		gbc_lblDegatsParClics.anchor = GridBagConstraints.WEST;
+		gbc_lblDegatsParClics.anchor = GridBagConstraints.EAST;
 		gbc_lblDegatsParClics.gridx = 1;
 		gbc_lblDegatsParClics.gridy = 2;
 		panel_Infos.add(lblDegatsParClics, gbc_lblDegatsParClics);
@@ -344,7 +344,7 @@ public class JFramePartieFinal extends JFrame{
 		lblDegatsParSecondes.setFont(new Font("Verdana", Font.BOLD, 18));
 		GridBagConstraints gbc_lblDegatsParSecondes = new GridBagConstraints();
 		gbc_lblDegatsParSecondes.insets = new Insets(0, 0, 5, 0);
-		gbc_lblDegatsParSecondes.anchor = GridBagConstraints.WEST;
+		gbc_lblDegatsParSecondes.anchor = GridBagConstraints.EAST;
 		gbc_lblDegatsParSecondes.gridx = 1;
 		gbc_lblDegatsParSecondes.gridy = 3;
 		panel_Infos.add(lblDegatsParSecondes, gbc_lblDegatsParSecondes);
@@ -364,7 +364,7 @@ public class JFramePartieFinal extends JFrame{
 		lblNombreDePieces.setFont(new Font("Verdana", Font.BOLD, 18));
 		GridBagConstraints gbc_lblNombreDePieces = new GridBagConstraints();
 		gbc_lblNombreDePieces.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNombreDePieces.anchor = GridBagConstraints.WEST;
+		gbc_lblNombreDePieces.anchor = GridBagConstraints.EAST;
 		gbc_lblNombreDePieces.gridx = 1;
 		gbc_lblNombreDePieces.gridy = 4;
 		panel_Infos.add(lblNombreDePieces, gbc_lblNombreDePieces);
@@ -383,7 +383,8 @@ public class JFramePartieFinal extends JFrame{
 		lblXP.setForeground(new Color(105, 105, 105));
 		lblXP.setFont(new Font("Verdana", Font.BOLD, 18));
 		GridBagConstraints gbc_lblXP = new GridBagConstraints();
-		gbc_lblXP.insets = new Insets(0, 0, 0, 5);
+		gbc_lblXP.anchor = GridBagConstraints.EAST;
+		gbc_lblXP.insets = new Insets(0, 0, 5, 0);
 		gbc_lblXP.gridx = 1;
 		gbc_lblXP.gridy = 5;
 		panel_Infos.add(lblXP, gbc_lblXP);

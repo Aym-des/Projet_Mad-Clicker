@@ -1,12 +1,10 @@
 package Graphique;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.BoxLayout;
 
 import java.awt.GridBagLayout;
 
@@ -19,13 +17,18 @@ import java.awt.Color;
 
 import javax.swing.ImageIcon;
 
+import Graphique.JFramePartieFinal;
 import principal.Executable;
 
-import java.awt.FlowLayout;
+import javax.swing.JButton;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class JFrameResultats extends JFrame {
 
 	private JPanel contentPane;
+	private JFramePartieFinal frame1;
 
 	/**
 	 * Launch the application.
@@ -48,16 +51,16 @@ public class JFrameResultats extends JFrame {
 	 */
 	public JFrameResultats() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(500, 250, 800, 470);
+		setBounds(500, 250, 800, 550);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[]{0, 0, 0};
-		gbl_contentPane.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gbl_contentPane.columnWeights = new double[]{1.0, 1.0, Double.MIN_VALUE};
-		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+		gbl_contentPane.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gbl_contentPane.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
+		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
 		
 		JLabel lblNewLabel_3 = new JLabel("");
@@ -188,6 +191,41 @@ public class JFrameResultats extends JFrame {
 		gbc_lblPiece.gridx = 1;
 		gbc_lblPiece.gridy = 7;
 		contentPane.add(lblPiece, gbc_lblPiece);
+		
+		JButton btnQuitter = new JButton("Quitter");
+		btnQuitter.setIcon(new ImageIcon("Images/Icones/Icone Quitter.png"));
+		btnQuitter.setFont(new Font("Verdana", Font.PLAIN, 12));
+		btnQuitter.setForeground(new Color(105, 105, 105));
+		btnQuitter.setBackground(new Color(169, 169, 169));
+		GridBagConstraints gbc_btnQuitter = new GridBagConstraints();
+		gbc_btnQuitter.insets = new Insets(15, 0, 5, 5);
+		gbc_btnQuitter.gridx = 0;
+		gbc_btnQuitter.gridy = 8;
+		contentPane.add(btnQuitter, gbc_btnQuitter);
+		btnQuitter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+			}
+		});
+		
+		JButton btnNewGame = new JButton("Retourner au jeu");
+		btnNewGame.setIcon(new ImageIcon("Images/Icones/Icone New Game.png"));
+		btnNewGame.setForeground(new Color(105, 105, 105));
+		btnNewGame.setFont(new Font("Verdana", Font.PLAIN, 12));
+		btnNewGame.setBackground(new Color(169, 169, 169));
+		GridBagConstraints gbc_btnNewGame = new GridBagConstraints();
+		gbc_btnNewGame.insets = new Insets(15, 0, 5, 0);
+		gbc_btnNewGame.gridx = 1;
+		gbc_btnNewGame.gridy = 8;
+		contentPane.add(btnNewGame, gbc_btnNewGame);
+		btnNewGame.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frame1 = new JFramePartieFinal();
+				frame1.setVisible(true);
+				dispose();
+			}
+		});
+		
 	}
 
 }

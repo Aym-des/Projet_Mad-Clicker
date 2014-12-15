@@ -60,7 +60,7 @@ public class JFrameServeur extends JFrame {
 	 * Create the frame.
 	 */
 	public JFrameServeur() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage("Images/Icones/Icone Crossed Swords.png"));
 		setTitle("Connexion");
 		setBounds(700, 350, 600, 180);

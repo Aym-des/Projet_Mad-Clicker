@@ -45,7 +45,7 @@ public class JFrameAccueil extends JFrame {
 	 * Create the frame.
 	 */
 	public JFrameAccueil() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage("Images/Icones/Icone Crossed Swords.png"));
 		setTitle("Selection Serveur - Client");
 		setBounds(700, 350, 350, 160);
