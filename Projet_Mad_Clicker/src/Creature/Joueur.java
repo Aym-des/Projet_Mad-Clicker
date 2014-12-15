@@ -42,11 +42,11 @@ public class Joueur {
 	}
 	
 	/**
-	 * @param degatparclic Le nouveau nombre de dégat par clic
+	 * @param degatparclic Le nombre de dégats par clics dont le joueur disposera
 	 */
 
 	public void setDpc(int degatparclic) {
-		dpc = dpc + degatparclic;
+		dpc = degatparclic;
 	}
 	
 	/**
@@ -90,17 +90,11 @@ public class Joueur {
 	}
 	
 	/**
-	 * @param nbpieces Le nouveau nombre de pièces donc le joueur dispose
+	 * @param nbpieces Le nombre de pieces dont le joueur disposera
 	 */
 
 	public void setPieces(int nbpieces) {
-		
-		if(nbpieces == 0){
-			pieces = 0;
-		}
-		else{
-		pieces = pieces + nbpieces;
-		}
+		pieces = nbpieces;
 	}
 	/**
 	 * @return Le montant de l'experience du joueur
@@ -109,13 +103,11 @@ public class Joueur {
 		return this.experience;
 	}
 	
+	/**
+	 * @param nbxp Le nombre d'expérience qu'aura le joueur
+	 */
 	public void setExperience(int nbxp){
-		if(nbxp == 0){
-			experience = 0;
-		}
-		else{
-			experience = experience + nbxp;
-		}
+			experience = nbxp;
 	}
 	/**
 	 * 
@@ -129,7 +121,7 @@ public class Joueur {
 	 * @param nb Le nombre à rajouter au nombre actuel de victimes
 	 */
 	public void setNbVictimes(int nb){
-		this.nbVictimes = this.nbVictimes + nb;
+		this.nbVictimes = nb;
 	}
 	/**
 	 * 
@@ -143,9 +135,20 @@ public class Joueur {
 	 * @param nb Le nombre  a rajouter au nombre de clics deja effectuer par le joueur
 	 */
 	public void setNbclics(int nb){
-		this.nbclics = this.nbclics + nb;
+		this.nbclics = nb;
 	}
 	//*****************************
+	
+	public Joueur(){
+		nom = "Nouveau Joueur";
+		niveau = 0;
+		dpc = 0;
+		dps = 0;
+		pieces = 0;
+		experience = 0;
+		nbVictimes = 0;
+		nbclics = 0;
+	}
 	
 	/**
 	 * Constructeur de l'objet Joueur
@@ -160,5 +163,8 @@ public class Joueur {
 		nbVictimes = param.DEFAULT_NB_VICTIMES;
 		nbclics = param.DEFAULT_NB_CLICS;
 	}
+	
+	
+	
 
 }

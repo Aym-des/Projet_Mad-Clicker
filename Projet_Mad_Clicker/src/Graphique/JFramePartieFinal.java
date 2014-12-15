@@ -57,6 +57,8 @@ public class JFramePartieFinal extends JFrame{
 	 * lblNombreDePieces Le JLabel qui affichera le nombre de pieces dont dispose le joueur
 	 */
 	private JLabel lblNombreDePieces;	
+	
+	private JLabel lblXP;
 	/**
 	 * contentPane Le JPanel
 	 */
@@ -147,7 +149,6 @@ public class JFramePartieFinal extends JFrame{
 	}
 
 
-
 	/**
 	 * Renvoie la chaine qu'affiche le JLabel.
 	 * @return La chaine contenant le nombre de pieces dont dispose le joueur
@@ -156,14 +157,20 @@ public class JFramePartieFinal extends JFrame{
 		return lblNombreDePieces.getText();
 	}
 
-
-
 	/**
 	 * Permet de modifier la chaine qu'affiche le JLabel.
 	 * @param nbpieces Le nombre de pieces a afficher
 	 */
 	public void setLblNombreDePieces(int nbpieces) {
 		lblNombreDePieces.setText(Integer.toString(nbpieces));
+	}
+	
+	public String getLblXP(){
+		return lblXP.getText();
+	}
+	
+	public void setLblXP(int xpActuel, int xpProchNiv){
+		lblXP.setText(Integer.toString(xpActuel) + "/" + Integer.toString(xpProchNiv) );
 	}
 
 
@@ -358,7 +365,7 @@ public class JFramePartieFinal extends JFrame{
 		gbc_lblNombreDePieces.gridy = 4;
 		panel_Infos.add(lblNombreDePieces, gbc_lblNombreDePieces);
 
-		JLabel lblExperience = new JLabel("Exp\u00E9rience :");
+		JLabel lblExperience = new JLabel("Exp\u00E9rience / Exp. niv. Suivant :");
 		lblExperience.setForeground(new Color(105, 105, 105));
 		lblExperience.setFont(new Font("Verdana", Font.BOLD, 20));
 		GridBagConstraints gbc_lblExperience = new GridBagConstraints();
@@ -368,7 +375,7 @@ public class JFramePartieFinal extends JFrame{
 		gbc_lblExperience.gridy = 5;
 		panel_Infos.add(lblExperience, gbc_lblExperience);
 
-		JLabel lblXP = new JLabel(Integer.toString(Executable.Le_Joueur.getExperience()));
+		lblXP = new JLabel(Integer.toString(Executable.Le_Joueur.getExperience()));
 		lblXP.setForeground(new Color(105, 105, 105));
 		lblXP.setFont(new Font("Verdana", Font.BOLD, 18));
 		GridBagConstraints gbc_lblXP = new GridBagConstraints();

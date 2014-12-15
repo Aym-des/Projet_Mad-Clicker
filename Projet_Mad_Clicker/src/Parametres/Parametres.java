@@ -22,6 +22,8 @@ public class Parametres {
 	 */
 	public final static int NUM_PORT = 6200;
 	/*########################################*/
+	
+	
 	/*##### INFOS CONCERNANT LE JOUEUR #####*/
 	/**
 	 * DEFAULT_NAME Le nom de joueur par défault
@@ -36,7 +38,7 @@ public class Parametres {
 	/**
 	 * DEFAULT_DPC est une constante entière contenant la valeur de départ/de base de dégâts par clic 
 	 */
-	public final int DEFAULT_DPC = 1;
+	public final int DEFAULT_DPC = 10;
 	
 	/**
 	 * DEFAULT_DPC est une constante entière contenant la valeur de départ/de base de dégâts par seconde 
@@ -52,8 +54,11 @@ public class Parametres {
 	 * DEFAULT_EXPERIENCE Constante entière contenant le nombre de points d'experience de départ
 	 */
 	public final int DEFAULT_EXPERIENCE = 0;
+	
+	
 	/*######################################*/
 	/*##### INFOS CONCERNANT LES MONSTRES #####*/
+	/*
 	public final int DEFAULT_PDV_GOBELIN = 5;
 	public final int DEFAULT_GAIN_GOBELIN = 5;
 	public final String DEFAULT_NOM_IMAGE_GOBELIN = "Images/Gobelin.png";
@@ -77,6 +82,38 @@ public class Parametres {
 	public final int DEFAULT_PDV_MINO = 100;
 	public final int DEFAULT_GAIN_MINO = 50;
 	public final String DEFAULT_NOM_IMAGE_MINO = "Images/Minoterreur.png";
+	*/
+	
+	public final int GAIN_PDV_GOBELIN = 8;
+	public final int GAIN_XP_GOBELIN = 5;
+	public final int GAIN_PIECES_GOBELIN = 5;
+	public final String DEFAULT_NOM_IMAGE_GOBELIN = "Images/Gobelin.png";
+	
+	public final int GAIN_PDV_GNOME = 12;
+	public final int GAIN_XP_GNOME = 10;
+	public final int GAIN_PIECES_GNOME = 10;
+	public final String DEFAULT_NOM_IMAGE_GNOME = "Images/Gnome.png";
+	
+	public final int GAIN_PDV_ZOMBIE = 20;
+	public final int GAIN_XP_ZOMBIE = 15;
+	public final int GAIN_PIECES_ZOMBIE = 15;
+	public final String DEFAULT_NOM_IMAGE_ZOMBIE = "Images/Zombie.png";
+	
+	public final int GAIN_PDV_PUNKGOB = 50;
+	public final int GAIN_XP_PUNKGOB = 25;
+	public final int GAIN_PIECES_PUNKGOB = 50;
+	public final String DEFAULT_NOM_IMAGE_PUNKGOB = "Images/Punk Gobelin.png";
+	
+	public final int GAIN_PDV_SERPABEILLE = 70;
+	public final int GAIN_XP_SERPABEILLE = 30;
+	public final int GAIN_PIECES_SERPABEILLE = 50;
+	public final String DEFAULT_NOM_IMAGE_SERPABEILLE = "Images/Serpabeille.png";
+	
+	public final int GAIN_PDV_MINO = 100;
+	public final int GAIN_XP_MINO = 40;
+	public final int GAIN_PIECES_MINO = 60;
+	public final String DEFAULT_NOM_IMAGE_MINO = "Images/Minoterreur.png";
+	
 	/*#########################################*/
 	/*##### INFOS CONCERNANT LES PARAMETRES DE LA PARTIE #####*/
 	/**
@@ -118,7 +155,10 @@ public class Parametres {
 	 */
 	public final int ADD_GAIN = 5;
 	
+	
 	/*##### GETTERS & SETTERS #####*/
+	/*
+	 * Inutiles car tous en public
 	public int getDEFAULT_PDV_GOBELIN() {
 		return DEFAULT_PDV_GOBELIN;
 	}
@@ -172,7 +212,7 @@ public class Parametres {
 	}
 	public String getDEFAULT_NOM_IMAGE_MINO() {
 		return DEFAULT_NOM_IMAGE_MINO;
-	}
+	}*/
 	/**
 	 * @return ADD_PDV
 	 */

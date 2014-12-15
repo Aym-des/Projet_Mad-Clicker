@@ -132,12 +132,9 @@ public class JFrameNewGame extends JFrame {
 		btnConfirmer.setFont(new Font("Verdana", Font.BOLD, 12));
 		btnConfirmer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				try{
-					Executable.nouveauPaneldeJeu();
-				}catch (Exception e){
-					e.printStackTrace();
-				}
+				
 				Executable.nouvelle_partie(textField.getText());
+				//Executable.tb_monstres[2].pop_Monstre(0, 2, 1, Executable.param);
 				//Executable.frame1.setLblNomDuJoueur(textField.getText());
 				//Executable.infos.setNom(textField.getText());
 				/*Executable.frame1.setLblNiveauDuJoueur("5");

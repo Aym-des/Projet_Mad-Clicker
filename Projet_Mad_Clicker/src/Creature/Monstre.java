@@ -27,6 +27,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import principal.Executable;
+import Parametres.Parametres;
 
 
 public class Monstre extends JFrame {
@@ -41,7 +42,7 @@ public class Monstre extends JFrame {
 	
 	public int valeurXp;
 	/**
-	 * indice est une variable entière permettant d'identifier si un monstre est un sbire(0) ou un boss(1)
+	 * indice donne l'indice du mMonstre dans le tableau déclarer dans executable
 	 */
 	public int indice;
 	
@@ -63,19 +64,92 @@ public class Monstre extends JFrame {
 		return this.indice;
 	}
 	
+	/*
+	 * Revoir les points de vie et les formules de gains de pv en fonction du niveau pour equilibrage
+	 */
+	
+	
+public void pop_Monstre(int nb, int niveau_joueur, Parametres param){
+		
+		this.niveau = niveau_joueur;
+		
+		switch(nb){
+		case 0 : {
+			this.nom = "Minoterreur";
+			this.pdv = (param.GAIN_PDV_MINO) + (this.niveau * param.GAIN_PDV_MINO);
+			this.valeurPiece = (param.GAIN_PIECES_MINO) + (this.niveau * param.GAIN_PDV_MINO);
+			this.valeurXp = (this.niveau * param.GAIN_XP_MINO);
+			this.imgMonstre.setIcon(new ImageIcon(param.DEFAULT_NOM_IMAGE_MINO));
+			break;
+		}
+		case 1 :{
+			this.nom = "Zombie";
+			this.pdv = (param.GAIN_PDV_ZOMBIE) + (this.niveau * param.GAIN_PDV_ZOMBIE);
+			this.valeurPiece = (param.GAIN_PIECES_ZOMBIE) + (this.niveau * param.GAIN_PIECES_ZOMBIE);
+			this.valeurXp = (this.niveau * param.GAIN_XP_ZOMBIE);;
+			this.imgMonstre.setIcon(new ImageIcon(param.DEFAULT_NOM_IMAGE_ZOMBIE));
+			break;
+		}
+		
+		case 2 :{
+			this.nom = "Punk Gobelin";
+			this.pdv =(param.GAIN_PDV_PUNKGOB) + (this.niveau * param.GAIN_PDV_PUNKGOB);
+			this.valeurPiece =(param.GAIN_PIECES_PUNKGOB) + (this.niveau * param.GAIN_PIECES_PUNKGOB);
+			this.valeurXp = (this.niveau * param.GAIN_XP_PUNKGOB);
+			this.imgMonstre.setIcon(new ImageIcon(param.DEFAULT_NOM_IMAGE_PUNKGOB));
+			break;
+		}
+		
+		case 3 :{
+			this.nom = "Gobelin";
+			this.pdv =(param.GAIN_PDV_GOBELIN) + (this.niveau * param.GAIN_PDV_GOBELIN);
+			this.valeurPiece =(param.GAIN_PIECES_GOBELIN) + (this.niveau * param.GAIN_PIECES_GOBELIN);
+			this.valeurXp = (this.niveau * param.GAIN_XP_GOBELIN);
+			this.imgMonstre.setIcon(new ImageIcon(param.DEFAULT_NOM_IMAGE_GOBELIN));
+			break;
+		}
+		
+		case 4 :{
+			this.nom = "Gnome";
+			this.pdv =(param.GAIN_PDV_GNOME) + (this.niveau * param.GAIN_PDV_GNOME);
+			this.valeurPiece =(param.GAIN_PIECES_GNOME) + (this.niveau * param.GAIN_PIECES_GNOME);
+			this.valeurXp = (this.niveau * param.GAIN_XP_GNOME);
+			this.imgMonstre.setIcon(new ImageIcon(param.DEFAULT_NOM_IMAGE_GNOME));
+			break;
+		}
+			
+		case 5 :{
+			this.nom = "SerpAbeille";
+			this.pdv =(param.GAIN_PDV_SERPABEILLE) + (this.niveau * param.GAIN_PDV_SERPABEILLE);
+			this.valeurPiece =(param.GAIN_PIECES_SERPABEILLE) + (this.niveau * param.GAIN_PIECES_SERPABEILLE);
+			this.valeurXp = (this.niveau * param.GAIN_XP_SERPABEILLE);
+			this.imgMonstre.setIcon(new ImageIcon(param.DEFAULT_NOM_IMAGE_SERPABEILLE));
+			break;
+		}
+			
+		}
+		//this.indice = ind;
+		this.lblNomMonstre.setText(this.nom);
+		this.lblPdvMonstre.setText(Integer.toString(this.pdv));
+		this.estActif = true;
+		this.panelMonstre.setVisible(true);
+		
+	}
+
+	
 	
 //////////////////Modifier le constructeur pour faire pop des monstres bas niveau normaux/////////////////////////////
 /////////////////Crée un constructeur Pour faire apparaitre un monstre au hasard selon les stats définies dans Stats monstres
 
-	public Monstre(String string, int inset2, int inset3, int inset4,int axe_X, int axe_Y, int ind, String nomImage){
+	public Monstre(int axe_X, int axe_Y, int ind, Parametres param_temp){
 		
-		StatsMonstres stats = new StatsMonstres();
+		param_temp = new Parametres();
 		
-		this.nom = "Monstre Test";
-		this.niveau = 5;
-		this.pdv = 50 + (this.niveau * stats.GAIN_PDV_GOBELIN);
-		this.valeurPiece = 9 + (this.niveau * stats.GAIN_PIECES_GOBELIN);
-		this.valeurXp = stats.GAIN_XP_GOBELIN + (this.niveau * stats.GAIN_XP_GOBELIN);
+		this.nom = "Punk Gobelin";
+		this.niveau = 1;
+		this.pdv = (this.niveau * param_temp.GAIN_PDV_PUNKGOB);
+		this.valeurPiece = (this.niveau * param_temp.GAIN_PIECES_PUNKGOB);
+		this.valeurXp = (this.niveau * param_temp.GAIN_XP_PUNKGOB);
 		this.indice = ind;
 		this.estActif = true;
 		
@@ -98,7 +172,7 @@ public class Monstre extends JFrame {
 		imgMonstre = new JButton("");
 		imgMonstre.setSize(200, 200);
 		imgMonstre.setAlignmentX(Component.CENTER_ALIGNMENT);
-		imgMonstre.setIcon(new ImageIcon("Images/Gobelin.png"));
+		imgMonstre.setIcon(new ImageIcon(param_temp.DEFAULT_NOM_IMAGE_PUNKGOB));
 		panelMonstre.add(imgMonstre);
 		imgMonstre.setBackground(Color.LIGHT_GRAY);
 		imgMonstre.addActionListener(new ActionListener(){
