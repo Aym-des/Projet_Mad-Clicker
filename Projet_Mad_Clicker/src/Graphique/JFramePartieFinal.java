@@ -450,7 +450,7 @@ public class JFramePartieFinal extends JFrame{
 		btnPouv2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				if( (principal.Executable.Le_Joueur.getPieces() >= param.COUT_PIECES_POUVOIR_1) && (buff == null)){
+				if( (principal.Executable.Le_Joueur.getPieces() >= param.COUT_PIECES_POUVOIR_2) && (buff == null)){
 					
 					Executable.achatPouvoir(2);
 					
@@ -482,7 +482,7 @@ public class JFramePartieFinal extends JFrame{
 		btnPouv3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				if( (principal.Executable.Le_Joueur.getPieces() >= param.COUT_PIECES_POUVOIR_1) && (buff == null)){
+				if( (principal.Executable.Le_Joueur.getPieces() >= param.COUT_PIECES_POUVOIR_3) && (buff == null)){
 					
 					Executable.achatPouvoir(3);
 					
@@ -514,7 +514,7 @@ public class JFramePartieFinal extends JFrame{
 		btnPouv4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				if( (principal.Executable.Le_Joueur.getPieces() >= param.COUT_PIECES_POUVOIR_1) && (buff == null)){
+				if( (principal.Executable.Le_Joueur.getPieces() >= param.COUT_PIECES_POUVOIR_4) && (buff == null)){
 					
 					Executable.achatPouvoir(4);
 					
