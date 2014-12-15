@@ -22,7 +22,7 @@ import java.awt.Insets;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
-import Créature.Joueur;
+import Creature.Joueur;
 import principal.Executable;
 
 import java.awt.Font;

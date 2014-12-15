@@ -3,8 +3,8 @@
  */
 package Interface;
 
-import Créature.Joueur;
-import Créature.Monstre;
+import Creature.Joueur;
+import Creature.Monstre;
 import Parametres.Parametres;
 
 /**
@@ -75,20 +75,6 @@ public class Controleur {
 		 * joueur.getDpc() += 20000;
 		 * joueur.getDps() += 5000;
 		 */
-	}
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		/**
-		 * Tant que le nombre de monstres vaincus (dont les points de vie sont tombÃ©s Ã  0) n'est pas atteint, la partie continue
-		 * 5 ici pour des raisons de test sinon 20 ou 50 
-		 */
-		while (Parametres.nbVictimes < 5){
-			
-
-		}
 	}
 
 }
