@@ -5,9 +5,8 @@ package Graphique;
  * Définir un nombre max de lettres pour le nom du joueur (pour peremttre vérif dans framenewgame)
  */
 
-import Interface.Controleur;
-//import Parametres.Parametres;
-//import Créature.Joueur;
+
+import Parametres.Parametres;
 import principal.Executable;
 
 import java.awt.BorderLayout;
@@ -15,6 +14,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 
@@ -63,6 +63,8 @@ public class JFramePartieFinal extends JFrame{
 	 * contentPane Le JPanel
 	 */
 	public JPanel contentPane;
+	
+	private Timer buff = null;
 
 
 	//GETTERS AND SETTERS////////////////////////////////
@@ -197,6 +199,9 @@ public class JFramePartieFinal extends JFrame{
 
 
 	public JFramePartieFinal() {
+		
+		Parametres param = new Parametres();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage("Images/Icones/Icone Crossed Swords.png"));
 		setBounds(100, 100, 1100, 800);
@@ -408,13 +413,27 @@ public class JFramePartieFinal extends JFrame{
 
 
 		ImageIcon icoPouv1 = new ImageIcon("Images/Icones/Icone Enclume.png");
-		JButton btnPouv1 = new JButton("Affutage de lame", icoPouv1);
+		JButton btnPouv1 = new JButton("Affutage de lame (" + Integer.toString(param.COUT_PIECES_POUVOIR_1) +" Pieces)", icoPouv1);
 		btnPouv1.setBackground(new Color(169, 169, 169));
 		btnPouv1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Controleur.pouvoir1();
+								
+				if( (principal.Executable.Le_Joueur.getPieces() >= param.COUT_PIECES_POUVOIR_1) && (buff == null) ) {
+					Executable.achatPouvoir(1);
+					
+					buff = new Timer(param.DEFAULT_BUFF_TIME * 1000, new ActionListener(){
+						public void actionPerformed(ActionEvent e){
+							Executable.finBuff(1);
+							buff.stop();
+							buff = null;
+						}
+					});	
+					buff.start();
+				}
 			}
 		});
+		
+		
 		btnPouv1.setFont(new Font("Verdana", Font.PLAIN, 18));
 		GridBagConstraints gbc_btnPouv1 = new GridBagConstraints();
 		gbc_btnPouv1.insets = new Insets(0, 0, 5, 0);
@@ -426,10 +445,25 @@ public class JFramePartieFinal extends JFrame{
 		//POUVOIR n°2
 
 		ImageIcon icoPouv2 = new ImageIcon("Images/Icones/Icone Lame Ardente.png");
-		JButton btnPouv2 = new JButton("Lame Ardente", icoPouv2);
+		JButton btnPouv2 = new JButton("Lame Ardente (" + Integer.toString(param.COUT_PIECES_POUVOIR_2) +" Pieces)", icoPouv2);
 		btnPouv2.setBackground(new Color(169, 169, 169));
 		btnPouv2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				if( (principal.Executable.Le_Joueur.getPieces() >= param.COUT_PIECES_POUVOIR_1) && (buff == null)){
+					
+					Executable.achatPouvoir(2);
+					
+					buff = new Timer(param.DEFAULT_BUFF_TIME * 1000, new ActionListener(){
+						public void actionPerformed(ActionEvent e){
+							Executable.finBuff(2);
+							buff.stop();
+							buff = null;
+						}
+					});
+					buff.start();
+				}
+				
 			}
 		});
 		btnPouv2.setFont(new Font("Verdana", Font.PLAIN, 18));
@@ -443,10 +477,25 @@ public class JFramePartieFinal extends JFrame{
 		//POUVOIR n°3
 
 		ImageIcon icoPouv3 = new ImageIcon("Images/Icones/Icone Tranchage Critique.png");
-		JButton btnPouv3 = new JButton("Tranchage critique", icoPouv3);
+		JButton btnPouv3 = new JButton("Tranchage critique (" + Integer.toString(param.COUT_PIECES_POUVOIR_3) +" Pieces)", icoPouv3);
 		btnPouv3.setBackground(new Color(169, 169, 169));
 		btnPouv3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				if( (principal.Executable.Le_Joueur.getPieces() >= param.COUT_PIECES_POUVOIR_1) && (buff == null)){
+					
+					Executable.achatPouvoir(3);
+					
+					buff = new Timer(param.DEFAULT_BUFF_TIME * 1000, new ActionListener(){
+						public void actionPerformed(ActionEvent e){
+							Executable.finBuff(3);
+							buff.stop();
+							buff = null;
+						}
+					});
+					buff.start();
+				}
+				
 			}
 		});
 		btnPouv3.setFont(new Font("Verdana", Font.PLAIN, 18));
@@ -460,10 +509,25 @@ public class JFramePartieFinal extends JFrame{
 		//POUVOIR n°4
 
 		ImageIcon icoPouv4 = new ImageIcon("Images/Icones/Icone Coup de Pouce Divin.png");
-		JButton btnPouv4 = new JButton("Coup de pouce divin", icoPouv4);
+		JButton btnPouv4 = new JButton("Coup de pouce divin (" + Integer.toString(param.COUT_PIECES_POUVOIR_4) +" Pieces)", icoPouv4);
 		btnPouv4.setBackground(new Color(169, 169, 169));
 		btnPouv4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				if( (principal.Executable.Le_Joueur.getPieces() >= param.COUT_PIECES_POUVOIR_1) && (buff == null)){
+					
+					Executable.achatPouvoir(4);
+					
+					buff = new Timer(param.DEFAULT_BUFF_TIME * 1000, new ActionListener(){
+						public void actionPerformed(ActionEvent e){
+							Executable.finBuff(4);
+							buff.stop();
+							buff = null;
+						}
+					});
+					buff.start();
+				}
+				
 			}
 		});
 		btnPouv4.setFont(new Font("Verdana", Font.PLAIN, 18));
