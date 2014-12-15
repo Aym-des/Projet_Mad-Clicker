@@ -48,7 +48,7 @@ public class JFrameAccueil extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage("Images/Icones/Icone Crossed Swords.png"));
 		setTitle("Selection Serveur - Client");
-		setBounds(100, 100, 350, 160);
+		setBounds(700, 350, 350, 160);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

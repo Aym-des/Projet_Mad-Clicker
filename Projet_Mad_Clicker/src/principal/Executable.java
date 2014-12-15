@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import Graphique.JFramePartieFinal;
+import Graphique.JFrameResultats;
 import Creature.Joueur;
 import Creature.Monstre;
 import Parametres.Parametres;
@@ -44,6 +45,10 @@ public class Executable {
 	 */	
 	public static JFramePartieFinal frame1;
 	/**
+	 * La frame qui crée la fenetre pour les résultats
+	 */
+	public static JFrameResultats frame2;
+	/**
 	 * Le Joueur qui va jouer
 	 */	
 	public static Joueur Le_Joueur;	
@@ -54,13 +59,13 @@ public class Executable {
 	public static Monstre[] tb_monstres = new Monstre[6];
 
 	public static JPanel paneldeJeu;
-	
+
 	public static int tempsdeJeu;
-	
+
 	public static Timer tempsPartie;
-	
-	
-	
+
+
+
 
 	public static void nouveauPaneldeJeu(){
 		paneldeJeu = new JPanel();
@@ -93,11 +98,11 @@ public class Executable {
 		frame1.setLblDegatsParSecondes(Le_Joueur.getDps());
 		frame1.setLblNombreDePieces(Le_Joueur.getPieces());
 		frame1.setLblXP(Le_Joueur.getExperience(), 125);
-		
+
 		tempsdeJeu = 60000; // A définir par le choix du joueur
 
 		if(paneldeJeu == null){
-		
+
 			try{
 				nouveauPaneldeJeu();
 			}catch (Exception e){
@@ -115,20 +120,24 @@ public class Executable {
 				tb_monstres[i].pop_Monstre(2,0,param);// 0 en param au lieu du niveau du joueur pour que les pv soient correct
 			}
 		}
-		
+
 		tempsPartie = new Timer(tempsdeJeu, new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				paneldeJeu.setVisible(false);
 				frame1.setLblNomDuJoueur("FIN");
 				tempsPartie.stop();
+				frame1.setVisible(false);
+				frame2 = new JFrameResultats();
+				frame2.setTitle("Mad Clicker");
+				frame2.setVisible(true);
 			}
 		});
-		
+
 		tempsPartie.start();
 
 		frame1.repaint();
-		
-		
+
+
 
 		/*
 		 * OU 
@@ -142,102 +151,102 @@ public class Executable {
 		 * Quand on le tue, il redevient invisible et inactif et on fait toutes les actions nécessaire pour dire qu'on l'a tuer qu'on ramasse x pieces etc.
 		 */
 	}
-	
-public static int choixMonstre(){
-		
+
+	public static int choixMonstre(){
+
 		Random random_nb = new Random();
-		
+
 		int nb_choisi;
-		
+
 		nb_choisi = random_nb.nextInt(6);
-		
+
 		return nb_choisi;
-		
+
 	}
 
 
 
 	public static void supprMonstre(int indice){
-		
+
 		//On calcul le nombre de pieces, d'exp et on rajoute une victime
-		
+
 		Le_Joueur.setPieces(param.gainPieces(Le_Joueur.getPieces(), tb_monstres[indice].valeurPiece));		
 		Le_Joueur.setNbVictimes(Le_Joueur.getNbVictimes() + 1);		
 		Le_Joueur.setExperience(Le_Joueur.getExperience() + tb_monstres[indice].valeurXp);
-		
+
 		//On vérifie si l'exp est suffisante pour passer au niveau suivant, si oui gain de niveau et de dpc
-		
+
 		while(Le_Joueur.getExperience() >= param.XpNivSuivant(Le_Joueur.getNiveau() ) ){
-			
+
 			Le_Joueur.setNiveau(Le_Joueur.getNiveau() + 1);
 			Le_Joueur.setDpc(param.gainDpc(Le_Joueur.getNiveau(), Le_Joueur.getDpc() ) );
-			
+
 			frame1.setLblNiveauDuJoueur(Le_Joueur.getNiveau());
 			frame1.setLblDegatsParClics(Le_Joueur.getDpc());
-			
+
 		}
-		
+
 		//On met a jour les infos affichées
-		
+
 		frame1.setLblNombreDePieces(Le_Joueur.getPieces());
 		frame1.setLblXP(Le_Joueur.getExperience(), param.XpNivSuivant(Le_Joueur.getNiveau() ) );
-		
+
 		//On note le monstre comme étant mort et on le cache
-		
+
 		tb_monstres[indice].estActif = false;
 		tb_monstres[indice].panelMonstre.setVisible(false);
-		
-		
+
+
 		if((Le_Joueur.getNbVictimes() % 5) == 0){
-			
+
 			//Si Il ne reste qu'un monstre en vie, on fait réaparaitre 5 nouveau monstre, dont les stats sont basée sur le niveau du joueur
-			
+
 			for(int i = 0; i < 6; i++){
 				if(tb_monstres[i].estActif == false){
 					tb_monstres[i].pop_Monstre(choixMonstre(),Le_Joueur.getNiveau(),param);
 				}
 			}
 		}
-		
+
 		frame1.repaint();
 		//System.out.println(" Victimes : " + Le_Joueur.getNbVictimes());
 	}
-	
+
 	public static void achatPouvoir(int numPouvoir){
 		switch(numPouvoir){
-			case 1 : {
-				Le_Joueur.setPieces(Le_Joueur.getPieces() - param.COUT_PIECES_POUVOIR_1);
-				Le_Joueur.setDpc(Le_Joueur.getDpc() + param.GAIN_DPC_POUVOIR_1);
-				Le_Joueur.setDps(Le_Joueur.getDps() + param.GAIN_DPS_POUVOIR_1);
-				break;
-			}
-			case 2 :{
-				Le_Joueur.setPieces(Le_Joueur.getPieces() - param.COUT_PIECES_POUVOIR_2);
-				Le_Joueur.setDpc(Le_Joueur.getDpc() + param.GAIN_DPC_POUVOIR_2);
-				Le_Joueur.setDps(Le_Joueur.getDps() + param.GAIN_DPS_POUVOIR_2);
-				break;
-			}
-			case 3 :{
-				Le_Joueur.setPieces(Le_Joueur.getPieces() - param.COUT_PIECES_POUVOIR_3);
-				Le_Joueur.setDpc(Le_Joueur.getDpc() + param.GAIN_DPC_POUVOIR_3);
-				Le_Joueur.setDps(Le_Joueur.getDps() + param.GAIN_DPS_POUVOIR_3);
-				break;
-			}
-			case 4 :{
-				Le_Joueur.setPieces(Le_Joueur.getPieces() - param.COUT_PIECES_POUVOIR_4);
-				Le_Joueur.setDpc(Le_Joueur.getDpc() + param.GAIN_DPC_POUVOIR_4);
-				Le_Joueur.setDps(Le_Joueur.getDps() + param.GAIN_DPS_POUVOIR_4);
-				break;
-			}
+		case 1 : {
+			Le_Joueur.setPieces(Le_Joueur.getPieces() - param.COUT_PIECES_POUVOIR_1);
+			Le_Joueur.setDpc(Le_Joueur.getDpc() + param.GAIN_DPC_POUVOIR_1);
+			Le_Joueur.setDps(Le_Joueur.getDps() + param.GAIN_DPS_POUVOIR_1);
+			break;
 		}
-		
+		case 2 :{
+			Le_Joueur.setPieces(Le_Joueur.getPieces() - param.COUT_PIECES_POUVOIR_2);
+			Le_Joueur.setDpc(Le_Joueur.getDpc() + param.GAIN_DPC_POUVOIR_2);
+			Le_Joueur.setDps(Le_Joueur.getDps() + param.GAIN_DPS_POUVOIR_2);
+			break;
+		}
+		case 3 :{
+			Le_Joueur.setPieces(Le_Joueur.getPieces() - param.COUT_PIECES_POUVOIR_3);
+			Le_Joueur.setDpc(Le_Joueur.getDpc() + param.GAIN_DPC_POUVOIR_3);
+			Le_Joueur.setDps(Le_Joueur.getDps() + param.GAIN_DPS_POUVOIR_3);
+			break;
+		}
+		case 4 :{
+			Le_Joueur.setPieces(Le_Joueur.getPieces() - param.COUT_PIECES_POUVOIR_4);
+			Le_Joueur.setDpc(Le_Joueur.getDpc() + param.GAIN_DPC_POUVOIR_4);
+			Le_Joueur.setDps(Le_Joueur.getDps() + param.GAIN_DPS_POUVOIR_4);
+			break;
+		}
+		}
+
 		frame1.setLblNombreDePieces(Le_Joueur.getPieces());
 		frame1.setLblDegatsParClics(Le_Joueur.getDpc());
 		frame1.setLblDegatsParSecondes(Le_Joueur.getDps());
 		frame1.repaint();
-		
+
 	}
-	
+
 	public static void finBuff(int numPouvoir){
 		switch(numPouvoir){
 		case 1 : {
@@ -260,8 +269,8 @@ public static int choixMonstre(){
 			Le_Joueur.setDps(Le_Joueur.getDps() - param.GAIN_DPS_POUVOIR_4);
 			break;
 		}
-	}
-		
+		}
+
 		frame1.setLblDegatsParClics(Le_Joueur.getDpc());
 		frame1.setLblDegatsParSecondes(Le_Joueur.getDps());
 		frame1.repaint();
@@ -286,10 +295,8 @@ public static int choixMonstre(){
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-
 			}
 		});
-		
 	}
 
 }

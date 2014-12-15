@@ -49,7 +49,7 @@ public class JFrameModeDeJeu extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage("Images/Icones/Icone Crossed Swords.png"));
 		setTitle("Selection mode de jeu");
-		setBounds(100, 100, 350, 160);
+		setBounds(700, 350, 350, 140);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -65,7 +65,7 @@ public class JFrameModeDeJeu extends JFrame {
 		lblMode.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblMode = new GridBagConstraints();
 		gbc_lblMode.gridwidth = 2;
-		gbc_lblMode.insets = new Insets(15, 0, 25, 0);
+		gbc_lblMode.insets = new Insets(10, 0, 20, 0);
 		gbc_lblMode.gridx = 0;
 		gbc_lblMode.gridy = 0;
 		contentPane.add(lblMode, gbc_lblMode);
