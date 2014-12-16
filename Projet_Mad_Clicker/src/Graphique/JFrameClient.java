@@ -36,7 +36,7 @@ public class JFrameClient extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -48,6 +48,7 @@ public class JFrameClient extends JFrame {
 			}
 		});
 	}
+	*/
 
 	/**
 	 * Create the frame.
@@ -127,7 +128,7 @@ public class JFrameClient extends JFrame {
 		contentPane.add(btnConfirmer, gbc_btnConfirmer);
 		btnConfirmer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ClientTCP.creationsocket(textField.getText());
+//				ClientTCP.creationsocket(textField.getText());
 				System.out.println();
 				JFrameNewGame newGame = new JFrameNewGame();
 				newGame.setVisible(true);

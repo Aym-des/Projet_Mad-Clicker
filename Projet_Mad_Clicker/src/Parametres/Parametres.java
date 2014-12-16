@@ -3,11 +3,11 @@
  */
 package Parametres;
 
-import java.net.SocketImpl;
-import java.util.Scanner;
+//import java.net.SocketImpl;
+//import java.util.Scanner;
 
-import Creature.Joueur;
-import Graphique.JFrameNewGame;
+//import Creature.Joueur;
+//import Graphique.JFrameNewGame;
 
 //A VOIR : 
 //PAssages de certain parametres genre nbvictimes dans infos_joueur
@@ -46,7 +46,7 @@ public class Parametres {
 	public final int DEFAULT_DPS = 0;
 	
 	/**
-	 * DEFAULT_DPS_TIME est une constante entière définissant le temps durant lequel un dot est actif
+	 * DEFAULT_DOT_TIME est une constante entière définissant le temps durant lequel un dot est actif
 	 */
 	public final int DEFAULT_DOT_TIME = 5;
 	
@@ -65,18 +65,35 @@ public class Parametres {
 	 */
 	public final int GAIN_DPC = 10;
 	
+	/**
+	 * Méthode qui calcule le nouveau nombre de dégats par clic du joueur lors de la prise d'un niveau.
+	 * Rajoute au dpc actuels Les gain en dpc standart et le niveau du joueur
+	 * @param niveauJoueur Le niveau du Joueur
+	 * @param dpcjoueur Le nombre de degats par clics actuel du joueur
+	 * @return Le nouveau nombre de degats par clics
+	 */
 	public int gainDpc(int niveauJoueur, int dpcjoueur){
 		
 		int NouveauNbDpc = dpcjoueur + GAIN_DPC + niveauJoueur;
 		return NouveauNbDpc;
 	}
-	
+	/**
+	 * Méthode qui calcule le nouveau nombre de pieces du joueur lorsqu'il tue un monstre.
+	 * Rajoute au nombre de pieces actuel le nombre de pieces laissée par le monstre lors de sa mort
+	 * @param piecesJoueur Le nombre actuel de pieces du joueur
+	 * @param piecesMonstre Les pieces laissée par le monstre lors de sa mort
+	 * @return Le nouveau nombre de pieces dont disposera le joueur
+	 */
 	public int gainPieces(int piecesJoueur, int piecesMonstre){
 		
 		int NouveauNbPieces = piecesJoueur + piecesMonstre;
 		return NouveauNbPieces;
 	}
-	
+	/**
+	 * Méthode qui calcule le nombre d'expérience requis pour passer au niveau suivant
+	 * @param NiveauJoueur Le niveau actuel du joueur
+	 * @return Le montant d'expérience requis pour passer au niveau suivant 100 fois le niveau du joueur + 25 fois le niveau du joueur
+	 */
 	public int XpNivSuivant(int NiveauJoueur){
 		
 		int xpRequise = ((NiveauJoueur * 100) + (NiveauJoueur * 25));
@@ -119,18 +136,35 @@ public class Parametres {
 	public final String DEFAULT_NOM_IMAGE_MINO = "Images/Minoterreur.png";
 	
 	
+	/**
+	 * Méthode qui calcule le nombre de points de vie d'un monstre en fonction de son niveau avant son apparition
+	 * @param gainPdvMob Le montant standart de gain de points de vie pour un niveau
+	 * @param niveau Le niveau du monstre qui est égal à celui du joueur
+	 * @return Le nombre de points de vie qu'aura le monstre
+	 */
 	public int gainPdvMonstre(int gainPdvMob, int niveau){
-		int gain = gainPdvMob + (niveau * gainPdvMob);
+		int pdvMonstre = (niveau * gainPdvMob);
 		
-		return gain;
+		return pdvMonstre;
 	}
 	
+	/**
+	 * Méthode qui calcule la valeur en pieces d'un monstre en fonction de son niveau avant son apparition
+	 * @param gainPiecesMob Le montant standart de gain de valeur (en pieces) pour un niveau
+	 * @param niveau Le niveau du monstre (égal a celui du joueur)
+	 * @return La valeur en pieces du monstre
+	 */
 	public int gainPiecesMonstre(int gainPiecesMob, int niveau){
-		int gain = (niveau * gainPiecesMob);
+		int valeurPieces = (niveau * gainPiecesMob);
 		
-		return gain;
+		return valeurPieces;
 	}
-	
+	/**
+	 * Méthode qui calcule la valeur en expérience d'un monstre en fonction de son niveau avant son apparition
+	 * @param gainXpMob Le montant standart de gain de valeur (en expérience) pour un niveau
+	 * @param niveau Le niveau du monstre (égal a celui du joueur)
+	 * @return La valeur en expérience du monstre
+	 */
 	public int gainXpMonstre(int gainXpMob, int niveau){
 		
 		int gain = gainXpMob + niveau;
@@ -146,10 +180,6 @@ public class Parametres {
 	 */
 	public final int DEFAULT_NB_VICTIMES = 0;
 	
-	/**
-	 * DEFAULT_NB_VICTIMES Constante entière contenant le nombre de clics par défault
-	 */
-	public final int DEFAULT_NB_CLICS = 0;
 	/*########################################################*/
 	
 //////////////////////////////////////////////////

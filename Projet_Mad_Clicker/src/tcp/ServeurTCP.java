@@ -21,6 +21,8 @@ public class ServeurTCP extends ServerSocket implements Runnable {
 	public static void recupAdresse(String adresse){
 		InetAddress adresseServeur;
 		InetAddress adresseLocale;
+		ServerSocket soc_Serv;
+		Socket soc;
 
 		try {
 			adresseLocale = InetAddress.getLocalHost();
@@ -32,21 +34,22 @@ public class ServeurTCP extends ServerSocket implements Runnable {
 
 	}
 
-	protected InetAddress adresseServeur = InetAddress.getLocalHost();
+	protected static InetAddress adresseServeur = InetAddress.getLocalHost();
 	public final static int NB_LINK_MAX = 2;
 
 	public ServeurTCP() throws IOException {
 		super();
 	}
+	
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		ServerSocket socketServeur = new ServerSocket(Parametres.NUM_PORT, NB_LINK_MAX, adresseServeur);
 		Socket soc = socketServeur.accept();
 		BufferedReader in = new BufferedReader(new InputStreamReader(soc.getInputStream()));
 		PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(soc.getOutputStream())), true);
 		
 		System.out.println(adresseServeur);
-		while (true){
+		if (true){
 			System.out.print(">");
 			String msg = "TEST CLIENT";
 			try {
@@ -70,5 +73,5 @@ public class ServeurTCP extends ServerSocket implements Runnable {
 			e.printStackTrace();
 		}
 
-	}
+	}*/
 }

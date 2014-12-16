@@ -27,46 +27,79 @@ import java.awt.Component;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-import principal.Executable;
+//import principal.Executable;
 import Parametres.Parametres;
 
 
 public class Monstre extends JFrame {
 	
+	/**
+	 * Le nom du Monstre
+	 */
 	public String nom;
-	
+	/**
+	 * Les points de vies du Monstre
+	 */
 	public int pdv;
-	
+	/**
+	 * Le niveau du Monstre
+	 */	
 	public int niveau;
-	
+	/**
+	 * Le nombre de pieces que le joueur recevra si il tue ce monstre
+	 */
 	public int valeurPiece;
-	
+	/**
+	 * Le nombre d'expérience que le Joueur recevra si il tue se monstre
+	 */
 	public int valeurXp;
 	/**
-	 * indice donne l'indice du mMonstre dans le tableau déclarer dans executable
+	 * L'indice du Monstre dans le tableau déclaré dans executable
 	 */
 	public int indice;
-	
+	/**
+	 * Le timer qui servira a faire les dégats par secondes sur les Monstres	
+	 */
 	public Timer dot = null;
-	
+	/**
+	 * Les dégats à faire au monstre grace au timer
+	 */
 	public int dot_damage;
-	
+	/**
+	 * le temps ecoulé depuis le début du dot. Remis a zero si on reclic sur le monstre et que le nombre de dps est positif
+	 */
 	private int tempsEcoule = 0;
-	
+	/**
+	 * Définit si le monstre est considéré comme vivant ou mort
+	 */
 	public boolean estActif;
-	
+	/**
+	 * Le JPanel qui représentar le monstre
+	 */
 	public JPanel panelMonstre;
-	
+	/**
+	 * Le JLabel qui affichera le nom du monstre
+	 */
 	public JLabel lblNomMonstre;
-	
+	/**
+	 * Le JLabel qui affichera le nombre de points de vie du monstre.
+	 */
 	public JLabel lblPdvMonstre;
-	
+	/**
+	 * Le bouton avec comme icone l'image représentant le monstre
+	 */
 	public JButton imgMonstre;
-	
+	/**
+	 * Getter qui renvoie le nom du monstre
+	 * @return Le nom du monstre
+	 */
 	public String getNom(){
 		return this.nom;
 	}
-	
+	/**
+	 * Getter qui renvoie l'indice du monstre dans le tableau de monstre (Dans la classe executable)
+	 * @return L'indice du monstre dans le tableau
+	 */
 	public int getIndice(){
 		return this.indice;
 	}
@@ -75,7 +108,14 @@ public class Monstre extends JFrame {
 	 * Revoir les points de vie et les formules de gains de pv en fonction du niveau pour equilibrage
 	 */
 	
-	
+/**
+ * Méthode qui fait apparaitre un monstre en fonction du nombre choisi par la méthode choixMonstre de la classe Executable
+ * La méthode remplace les stats des monstre mort par celles des monstres qui vont apparaitres
+ * Ensuite, elle définit les monstres comme étant actif (vivant) et les rend visible
+ * @param nb Le numéro du type de monstre choisi par choixMonstre
+ * @param niveau_joueur Le niveau du Joueur
+ * @param param Les paramètres nécessaires a la définissions des points de vie et autres attributs du monstre
+ */
 public void pop_Monstre(int nb, int niveau_joueur, Parametres param){
 		
 		this.niveau = niveau_joueur;
@@ -135,7 +175,7 @@ public void pop_Monstre(int nb, int niveau_joueur, Parametres param){
 		}
 			
 		}
-		//this.indice = ind;
+		
 		this.lblNomMonstre.setText(this.nom);
 		this.lblPdvMonstre.setText(Integer.toString(this.pdv));
 		this.estActif = true;
@@ -144,7 +184,14 @@ public void pop_Monstre(int nb, int niveau_joueur, Parametres param){
 	}
 
 	
-
+/**
+ * Constructeur Standart de la classe Monstre.
+ * Crée 6 monstre "Punk Gobelin" identiques comme monstre de base
+ * @param axe_X Les coordonnées X pour le positionnement dans le JPanel
+ * @param axe_Y Les coordonnées Y pour le positionnement dans le JPanel
+ * @param ind L'indice du monstre dans le tableau de monstre instancié dans Executable
+ * @param param_temp Les paramètres néessaires au paramétrage des attributs du monstre
+ */
 	public Monstre(int axe_X, int axe_Y, int ind, Parametres param_temp){
 		
 		param_temp = new Parametres();

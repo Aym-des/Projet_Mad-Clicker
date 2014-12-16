@@ -13,7 +13,6 @@ public class Joueur {
 	private int niveau;
 	private int pieces;
 	private int nbVictimes;
-	private int nbclics;
 	private int experience;
 	
 	//***** GETTERS & SETTERS *****
@@ -123,22 +122,12 @@ public class Joueur {
 	public void setNbVictimes(int nb){
 		this.nbVictimes = nb;
 	}
-	/**
-	 * 
-	 * @return Le nombre de clics effectués par le joueur
-	 */
-	public int getNbclics(){
-		return this.nbclics;
-	}
-	/**
-	 * 
-	 * @param nb Le nombre  a rajouter au nombre de clics deja effectuer par le joueur
-	 */
-	public void setNbclics(int nb){
-		this.nbclics = nb;
-	}
+	
 	//*****************************
 	
+	/**
+	 * Constructeur Sans paramètres de la classe Joueur
+	 */
 	public Joueur(){
 		nom = "Nouveau Joueur";
 		niveau = 0;
@@ -147,11 +136,11 @@ public class Joueur {
 		pieces = 0;
 		experience = 0;
 		nbVictimes = 0;
-		nbclics = 0;
 	}
 	
 	/**
-	 * Constructeur de l'objet Joueur
+	 * Constructeur utilisé par défaut de l'objet Joueur
+	 * @param param Les parametres utilisés pour initialiser les attributs du joueur
 	 */
 	public Joueur(Parametres param){
 		nom = param.DEFAULT_NAME;
@@ -161,7 +150,6 @@ public class Joueur {
 		pieces = param.DEFAULT_PIECES;
 		experience = param.DEFAULT_EXPERIENCE;
 		nbVictimes = param.DEFAULT_NB_VICTIMES;
-		nbclics = param.DEFAULT_NB_CLICS;
 	}
 	
 	

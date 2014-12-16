@@ -18,17 +18,32 @@ import Parametres.Parametres;
 public class ClientTCP extends ServerSocket implements Runnable {
 
 	public String adresseServeur;
-
-	public ClientTCP() throws IOException {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
 	public static Socket soc;
 	BufferedReader in = new BufferedReader(new InputStreamReader(soc.getInputStream()));
 	PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(soc.getOutputStream())), true);
 
-	public static void creationsocket(String adresseServeur){
+	public ClientTCP() throws IOException {
+			try {
+				soc = new Socket("localhost",Parametres.NUM_PORT);
+			} catch (UnknownHostException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	
+	
+	/*public static Socket soc;
+	BufferedReader in = new BufferedReader(new InputStreamReader(soc.getInputStream()));
+	PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(soc.getOutputStream())), true);
+
+	/*public static void creationsocket(String adresseServeur){
 		try {
 			soc = new Socket(adresseServeur, Parametres.NUM_PORT);
 		} catch (UnknownHostException e) {
@@ -70,4 +85,4 @@ public class ClientTCP extends ServerSocket implements Runnable {
 		}
 	}
 	
-}
+}*/

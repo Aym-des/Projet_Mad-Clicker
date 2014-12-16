@@ -28,12 +28,12 @@ import java.awt.event.ActionEvent;
 public class JFrameResultats extends JFrame {
 
 	private JPanel contentPane;
-	private JFramePartieFinal frame1;
+	//private JFramePartieFinal frame1;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -45,7 +45,7 @@ public class JFrameResultats extends JFrame {
 			}
 		});
 	}
-
+*/
 	/**
 	 * Create the frame.
 	 */
@@ -220,8 +220,7 @@ public class JFrameResultats extends JFrame {
 		contentPane.add(btnNewGame, gbc_btnNewGame);
 		btnNewGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				frame1 = new JFramePartieFinal();
-				frame1.setVisible(true);
+				Executable.frame1.setVisible(true);
 				dispose();
 			}
 		});

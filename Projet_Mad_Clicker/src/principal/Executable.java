@@ -22,12 +22,6 @@ import Creature.Monstre;
 import Parametres.Parametres;
 
 
-/*
- * Pour les sockets : Faire un fenetre au début du programm pour choisir qui est client qui est serveur
- * On lance le serveur d'abord, le client ensuite.
- * Faire Une fenetre simple avec 2 bouton : client et serveur et une petite phrase pour poser la question.
- * Eventuellement Mutlithread.... -_-'
- */
 
 /**
  * @author Aymeric
@@ -37,7 +31,7 @@ import Parametres.Parametres;
 public class Executable {
 
 	/**
-	 * Les parametres par défault de la partie
+	 * Tout les paramètres nécessaire pour faire une partie
 	 */	
 	public static Parametres param;
 	/**
@@ -49,19 +43,24 @@ public class Executable {
 	 */
 	public static JFrameResultats frame2;
 	/**
-	 * Le Joueur qui va jouer
+	 * Le Joueur, toutes ses statistiques
 	 */	
 	public static Joueur Le_Joueur;	
 	/**
-	 * Les infos sur le joueur, en chaines de caractere
-	 */	
-
+	 * Le tableau qui contiendra les monstres
+	 */
 	public static Monstre[] tb_monstres = new Monstre[6];
-
+	/**
+	 * Le panel sur lequel les Monstres apparaitront, la zone de jeu
+	 */
 	public static JPanel paneldeJeu;
-
+	/**
+	 * Le temps que durera une partie, en millisecondes
+	 */
 	public static int tempsdeJeu;
-
+	/**
+	 * Le timer qui servira  limiter le temps de la Partie, la partie s'arrete a la fin du timer
+	 */
 	public static Timer tempsPartie;
 
 
@@ -91,6 +90,7 @@ public class Executable {
 		Le_Joueur.setDps(param.DEFAULT_DPS);
 		Le_Joueur.setPieces(param.DEFAULT_PIECES);
 		Le_Joueur.setExperience(param.DEFAULT_EXPERIENCE);
+		Le_Joueur.setNbVictimes(param.DEFAULT_NB_VICTIMES);
 		frame1.setLblNomDuJoueur(nom);
 		frame1.setLblNiveauDuJoueur(Le_Joueur.getNiveau());
 		frame1.setLblDegatsParClics(Le_Joueur.getDpc());
@@ -98,7 +98,7 @@ public class Executable {
 		frame1.setLblNombreDePieces(Le_Joueur.getPieces());
 		frame1.setLblXP(Le_Joueur.getExperience(), 125);
 
-		tempsdeJeu = 300; // A définir par le choix du joueur
+		tempsdeJeu = 90000; // Eventuellement à définir par le choix du joueur
 
 		if(paneldeJeu == null){
 
@@ -115,16 +115,18 @@ public class Executable {
 			tb_monstres[5] = new Monstre(2, 1, 5, param);		
 		}
 		else{
+			paneldeJeu.setVisible(true);
 			for(int i = 0; i < 6; i++){
-				tb_monstres[i].pop_Monstre(2,0,param);// 0 en param au lieu du niveau du joueur pour que les pv soient correct
+				tb_monstres[i].pop_Monstre(2,1,param);
+				frame1.repaint();
 			}
 		}
 
 		tempsPartie = new Timer(tempsdeJeu, new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				paneldeJeu.setVisible(false);
-				frame1.setLblNomDuJoueur("FIN");
 				tempsPartie.stop();
+				tempsPartie = null;
 				frame1.setVisible(false);
 				frame2 = new JFrameResultats();
 				frame2.setTitle("Mad Clicker");

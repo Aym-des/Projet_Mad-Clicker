@@ -64,7 +64,7 @@ public class JFramePartieFinal extends JFrame{
 	 */
 	public JPanel contentPane;
 	
-	private Timer buff = null;
+	public Timer buff = null;
 
 
 	//GETTERS AND SETTERS////////////////////////////////
